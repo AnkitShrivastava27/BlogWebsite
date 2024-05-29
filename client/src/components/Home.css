@@ -1,0 +1,82 @@
+
+.footer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    background-color: black;
+   
+  padding-top: 10px;
+  }
+  .dnconsol{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+.subnavar{
+  list-style: none;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  background-color: rgba(185, 223, 243, 0.574);
+  font-size: medium;
+}
+
+.subnavar li{
+  padding-top: 20px;
+  margin-left: 50px;
+  padding-bottom: 21px;
+}
+.postcard {
+list-style: none;
+background-color: transparent;
+}
+ul{
+  background-color: transparent;
+}
+/* Home.css */
+.post{
+  background-color: rgba(237, 234, 234, 0.533);
+  
+}
+.li{
+ margin-bottom: 20px;
+}
+.postcard {
+  list-style: none;
+  padding: 0;
+ 
+ 
+  background-color: transparent;
+}
+
+.main{
+  background-color:transparent;
+}
+
+.btn{
+
+  border: none;
+  background-color:transparent;
+}
+
+.like-button {
+  border: transparent;
+  background-color: transparent;
+  color: black;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.like-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.like-button:hover:not(:disabled) {
+  border-color: transparent;
+  color:transparent;
+}

@@ -1,0 +1,43 @@
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.select-genre, .input-title, .input-post, .submit-button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.select-genre {
+  appearance: none;
+  background-color: #ffffff;
+}
+
+.input-title {
+  font-size: 16px;
+}
+
+.input-post {
+  font-size: 14px;
+  height: 150px;
+  resize: none;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}

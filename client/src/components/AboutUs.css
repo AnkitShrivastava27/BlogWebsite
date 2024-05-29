@@ -1,0 +1,38 @@
+/* src/AboutUs.css */
+
+.about-us-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+   
+    
+    font-family: Arial, sans-serif;
+    background-color: rgba(240, 248, 255, 0.814);
+}
+
+.about-us-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-us-container h2 {
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-us-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-us-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.about-us-container a:hover {
+    text-decoration: underline;
+}
