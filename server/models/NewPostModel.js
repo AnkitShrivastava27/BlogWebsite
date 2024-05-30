@@ -26,6 +26,7 @@ const postSchema = new mongoose.Schema({
     required: true
   }*/
   pid: { type: String, required: true, unique: true },
+  uid:{ type: String, required: true, unique: true },
   postTitle: String,
   author: String,
   postContent: String,

@@ -6,7 +6,7 @@ const Post = require('../models/NewPostModel');
 
 router.post('/newposts', async (req, res) => {
   try {
-    const {pid, genre, postTitle, postContent, author } = req.body;
+    const {pid,uid, genre, postTitle, postContent, author } = req.body;
 
     
     if (!genre || !postTitle || !postContent) {
@@ -15,7 +15,8 @@ router.post('/newposts', async (req, res) => {
 
     
     const newPost = new Post({
-      pid, 
+      pid,
+      uid, 
       postTitle,
       author,
       postContent,

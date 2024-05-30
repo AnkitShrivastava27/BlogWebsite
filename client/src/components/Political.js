@@ -83,7 +83,7 @@ const Political= () => {
                 <Card style={{ width: "58rem" }} className="card">
                   <Card.Body className="post">
                     <Card.Title><h3>{postTitle}</h3></Card.Title>
-                    <Card.Subtitle>Author: {fullname}</Card.Subtitle><br/>
+                    <Card.Subtitle>Author: {author}</Card.Subtitle><br/>
                     <Card.Subtitle className="mb-2 text-muted">
                       Posted on: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                     </Card.Subtitle>

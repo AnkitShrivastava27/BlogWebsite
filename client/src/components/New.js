@@ -6,12 +6,14 @@ import Cookies from 'js-cookie';
 
 const New = () => {
   const username = Cookies.get('username');
+  const fullname = Cookies.get('fullname');
   const navigate = useNavigate();
   const [genre, setGenre] = useState('');
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const author = username;
+  const author = fullname;
+  const uid = username;
   const pid = uuidv4();
   const createdAt = new Date().toISOString();
 
@@ -30,7 +32,7 @@ const New = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ pid, genre, postTitle, postContent, author, createdAt })
+        body: JSON.stringify({ pid, uid, genre, postTitle, postContent, author, createdAt })
       });
 
       if (response.ok) {
