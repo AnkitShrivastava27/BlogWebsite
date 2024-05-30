@@ -27,7 +27,7 @@ const New = () => {
     event.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:5000/api/newposts", {
+      const response = await fetch("https://wrightist-backend.vercel.app/api/newposts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -52,7 +52,7 @@ const Science = () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/like", {
+      const response = await fetch("https://wrightist-backend.vercel.app/api/like", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

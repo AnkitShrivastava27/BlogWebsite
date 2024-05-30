@@ -15,7 +15,7 @@ const Profile = () => {
   Cookies.set('fullname', fullname, { expires: 1 / 24 });
 
   const fetchPost = useCallback(() => {
-    fetch(`http://localhost:5000/api/mypost/${usernameFromCookie}`)
+    fetch(`https://wrightist-backend.vercel.app/api/mypost/${usernameFromCookie}`)
       .then((resp) => resp.json())
       .then((resp) => setMyPost(resp))
       .catch((e) => {
@@ -24,7 +24,7 @@ const Profile = () => {
   }, [usernameFromCookie]);
 
   const fetchUser = useCallback(() => {
-    fetch(`http://localhost:5000/api/users/${usernameFromCookie}`)
+    fetch(`https://wrightist-backend.vercel.app/api/users/${usernameFromCookie}`)
       .then((resp) => resp.json())
       .then((userData) => setUd(userData))
       .catch((e) => {
@@ -56,7 +56,7 @@ const Profile = () => {
   }, [mypost]);
 
   const fetchLikesForPost = useCallback((postId) => {
-    return fetch(`http://localhost:5000/api/GetLikes/${postId}`)
+    return fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postId}`)
       .then((resp) => resp.json())
       .then((data) => data.NbrLikes)
       .catch((error) => {
@@ -67,7 +67,7 @@ const Profile = () => {
 
   const handleDeletePost = useCallback((postId) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
-      fetch(`http://localhost:5000/api/deletepost/${postId}`, {
+      fetch(`https://wrightist-backend.vercel.app/api/deletepost/${postId}`, {
         method: 'DELETE',
       })
         .then((resp) => {
