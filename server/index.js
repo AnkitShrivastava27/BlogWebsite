@@ -1,10 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const { default: VercelRequest, VercelResponse } = require('@vercel/node');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const url2="mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/"
+const url2 = "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
+
 mongoose.connect(url2, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -17,24 +18,26 @@ mongoose.connect(url2, {
 });
 
 // Middleware
-app.use(cors()); 
-app.use(express.json()); // Middleware to parse JSON request bodies
-app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded request bodies
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('products api running new deploy');
 });
-// theser r api routes
-app.use('/api', require('./routes/User.js'));
-app.use('/api', require('./routes/LoginRoute.js'));
-app.use('/api', require('./routes/profile.js'));
-app.use('/api', require('./routes/newpost.js'));
-app.use('/api', require('./routes/mypost.js'));
-app.use('/api', require('./routes/home.js'));
-app.use('/api', require('./routes/likes.js'));
-app.use('/api',require('./routes/GetLikes.js'));
-app.use('/api',require('./routes/getpost.js'))
-app.use('/api',require('./routes/Delete.js'))
-app.listen(PORT, () => {
-  console.log('Server is listenin on PORT :' + PORT);
-});
+
+// API routes
+app.use('/api', require('./routes/User'));
+app.use('/api', require('./routes/LoginRoute'));
+app.use('/api', require('./routes/profile'));
+app.use('/api', require('./routes/newpost'));
+app.use('/api', require('./routes/mypost'));
+app.use('/api', require('./routes/home'));
+app.use('/api', require('./routes/likes'));
+app.use('/api', require('./routes/GetLikes'));
+app.use('/api', require('./routes/getpost'));
+app.use('/api', require('./routes/Delete'));
+
+module.exports = (req, res) => {
+  app(req, res);
+};
