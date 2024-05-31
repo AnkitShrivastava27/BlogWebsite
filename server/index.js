@@ -1,10 +1,24 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-
 const app = express();
+const mongoose = require('mongoose');
+
+const cors = require('cors');
+const CorsConfig ={
+  origin:"*",
+  credential: true,
+  methods: ["Post","Get","Put","Delete"],
+
+}
+
+
 const PORT = process.env.PORT || 5000;
 const url2 = "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
+// Middleware
+app.options("",cors(CorsConfig));
+app.use(cors(CorsConfig)); 
+app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded request bodies
+
 
 mongoose.connect(url2, {
   useNewUrlParser: true,
@@ -17,10 +31,6 @@ mongoose.connect(url2, {
   console.error('Error connecting to MongoDB:', error);
 });
 
-// Middleware
-app.use(cors()); 
-app.use(express.json()); // Middleware to parse JSON request bodies
-app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded request bodies
 
 app.get('/', (req, res) => {
   res.send('products api running new deploy');
