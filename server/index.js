@@ -1,21 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { default: VercelRequest, VercelResponse } = require('@vercel/node');
+const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 
 const app = express();
 const url2 = "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
 
-mongoose.connect(url2, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('Error connecting to MongoDB:', error);
-});
+mongoose.connect(url2)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
 // Middleware
 app.use(cors());
