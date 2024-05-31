@@ -17,7 +17,7 @@ const All = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/allpost");
+      const response = await fetch("https://wrightist-backend.vercel.app/api/allpost");
       const data = await response.json();
 
       

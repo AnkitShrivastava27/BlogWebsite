@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const url1="mongodb://localhost:27017/ProjectDatabase"
+const PORT = process.env.PORT || 5000;
 const url2="mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/"
 mongoose.connect(url2, {
   useNewUrlParser: true,
@@ -33,5 +33,5 @@ app.use('/api',require('./routes/GetLikes.js'));
 app.use('/api',require('./routes/getpost.js'))
 app.use('/api',require('./routes/Delete.js'))
 app.listen(5000, () => {
-  console.log('Server is running on http://localhost:5000');
+  console.log('Server is listenin on PORT :' + PORT);
 });

@@ -20,7 +20,7 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your server or API
+    // stiil pending to send data to api or db
     console.log('Form submitted:', formData);
 
     // Optionally reset the form
