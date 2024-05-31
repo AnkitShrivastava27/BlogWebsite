@@ -12,7 +12,7 @@ const CorsConfig ={
 
 
 const PORT = process.env.PORT || 5000;
-const url2 = "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
+//const url2 = "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
 // Middleware
 app.options("",cors(CorsConfig));
 app.use(cors(CorsConfig)); 
@@ -20,7 +20,7 @@ app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded request bodies
 
 
-mongoose.connect(url2, {
+mongoose.connect(process.env.url2, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
