@@ -48,6 +48,6 @@ app.use('/api', require('./routes/likes.js'));
 app.use('/api', require('./routes/GetLikes.js'));
 app.use('/api',require('./routes/getpost.js'))
 app.use('/api',require('./routes/Delete.js'))
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log('Server is listenin on PORT :' + PORT);
 });
