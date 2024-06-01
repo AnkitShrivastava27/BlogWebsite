@@ -14,7 +14,7 @@ const CorsConfig ={
 
 
 const port = process.env.PORT || 5000;
-const url2 = "process.env.url";
+const url2 = process.env.url  || "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/"
 // Middleware
 app.options("",cors(CorsConfig));
 app.use(cors(CorsConfig)); 
@@ -49,5 +49,5 @@ app.use('/api', require('./routes/GetLikes.js'));
 app.use('/api',require('./routes/getpost.js'))
 app.use('/api',require('./routes/Delete.js'))
 app.listen(port, () => {
-  console.log('Server is listenin on PORT :' + PORT);
+  console.log('Server is listenin on PORT :' + port);
 });
