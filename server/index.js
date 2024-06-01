@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config();
-
 const cors = require('cors');
 
 const CorsConfig = {
@@ -29,7 +28,10 @@ mongoose.connect(mongoURI)
     console.error('Error connecting to MongoDB:', error);
   });
 
-// These are API routes
+// Example usage of bcryptjs
+const bcrypt = require('bcryptjs');
+
+// Routes (Update all routes to use bcryptjs if applicable)
 app.use('/api', require('./routes/User.js'));
 app.use('/api', require('./routes/LoginRoute.js'));
 app.use('/api', require('./routes/profile.js'));
