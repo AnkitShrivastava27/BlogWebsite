@@ -34,9 +34,9 @@ mongoose.connect(process.env.url2, {
 });
 
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.send('products api running new deploy');
-});
+});*/
 // These are API routes
 app.use('/api', require('./routes/User.js'));
 app.use('/api', require('./routes/LoginRoute.js'));
