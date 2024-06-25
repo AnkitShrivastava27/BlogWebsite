@@ -32,6 +32,12 @@ mongoose.connect(mongoURI, {
   console.error('Error connecting to MongoDB:', error);
 });
 
+
+app.get('/', (req, res) => {
+  // Handle GET request for '/api/user'
+  res.json({ message: 'This is the user endpoint' });
+});
+
 // Routes
 app.use('/api', require('./routes/User'));
 app.use('/api', require('./routes/LoginRoute'));
