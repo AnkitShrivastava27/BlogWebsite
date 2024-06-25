@@ -5,49 +5,47 @@ require('dotenv').config();
 const cors = require('cors');
 
 // CORS configuration
-const CorsConfig = {
-  origin: "*",
+const corsOptions = {
+  origin: "*", // Change this to your frontend URL in production for better security
   credentials: true,
-  methods: ["POST", "GET", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE"]
 };
 
-// Port and MongoDB URI from environment variables or default values
-const port = process.env.PORT || 5000;
-const mongoURI = process.env.MONGO_URI || "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
-
 // Middleware
-app.options("*", cors(CorsConfig)); // Match any URL for CORS preflight requests
-app.use(cors(CorsConfig)); 
-app.use(express.json()); // Middleware to parse JSON request bodies
-app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded request bodies
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// MongoDB URI from environment variables or default value
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true // Ensure this option for index creation
 })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
-
-// Example usage of bcryptjs
-const bcrypt = require('bcryptjs');
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB:', error);
+});
 
 // Routes
-app.use('/api', require('./routes/User.js'));
-app.use('/api', require('./routes/LoginRoute.js'));
-app.use('/api', require('./routes/profile.js'));
-app.use('/api', require('./routes/newpost.js'));
-app.use('/api', require('./routes/mypost.js'));
-app.use('/api', require('./routes/home.js'));
-app.use('/api', require('./routes/likes.js'));
-app.use('/api', require('./routes/GetLikes.js'));
-app.use('/api', require('./routes/getpost.js'));
-app.use('/api', require('./routes/Delete.js'));
+app.use('/api', require('./routes/User'));
+app.use('/api', require('./routes/LoginRoute'));
+app.use('/api', require('./routes/profile'));
+app.use('/api', require('./routes/newpost'));
+app.use('/api', require('./routes/mypost'));
+app.use('/api', require('./routes/home'));
+app.use('/api', require('./routes/likes'));
+app.use('/api', require('./routes/GetLikes'));
+app.use('/api', require('./routes/getpost'));
+app.use('/api', require('./routes/Delete'));
 
+// Start the server
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server is listening on PORT: ${port}`);
 });
