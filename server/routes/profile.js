@@ -2,7 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel.js'); 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
 
 
 router.get('/users/:username', async (req, res) => {
