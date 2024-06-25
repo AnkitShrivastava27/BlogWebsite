@@ -6,7 +6,7 @@ const cors = require('cors');
 
 // CORS configuration
 const corsOptions = {
-  origin: "*", // Change this to your frontend URL in production for better security
+  origin: "*", // Replace with your frontend URL in production
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"]
 };
@@ -22,20 +22,13 @@ const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase"
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true // Ensure this option for index creation
+  useUnifiedTopology: true // Remove useCreateIndex from options
 })
 .then(() => {
   console.log('Connected to MongoDB');
 })
 .catch((error) => {
   console.error('Error connecting to MongoDB:', error);
-});
-
-
-app.get('/', (req, res) => {
-  // Handle GET request for '/api/user'
-  res.json({ message: 'This is the user endpoint' });
 });
 
 // Routes
