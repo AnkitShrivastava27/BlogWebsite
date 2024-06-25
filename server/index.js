@@ -4,12 +4,14 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
 
+// CORS configuration
 const CorsConfig = {
   origin: "*",
   credentials: true,
   methods: ["POST", "GET", "PUT", "DELETE"],
-}
+};
 
+// Port and MongoDB URI from environment variables or default values
 const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI || "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
 
@@ -20,7 +22,10 @@ app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded request bodies
 
 // Connect to MongoDB
-mongoose.connect(mongoURI)
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -31,7 +36,7 @@ mongoose.connect(mongoURI)
 // Example usage of bcryptjs
 const bcrypt = require('bcryptjs');
 
-// Routes (Update all routes to use bcryptjs if applicable)
+// Routes
 app.use('/api', require('./routes/User.js'));
 app.use('/api', require('./routes/LoginRoute.js'));
 app.use('/api', require('./routes/profile.js'));
