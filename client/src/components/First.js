@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect,useState } from "react";
 const First=()=>{
-    cosnt[data,setData]=useState('');
+    const[data,setData]=useState('');
     useEffect(() => {
         fetchData();
       }, []);
