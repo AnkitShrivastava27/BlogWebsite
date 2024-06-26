@@ -3,6 +3,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Home.css";
 import Cookies from 'js-cookie';
 import moment from 'moment';
+import First from "./First";
 
 const All = () => {
   const usernameFromCookie = Cookies.get('username');
@@ -72,6 +73,7 @@ const All = () => {
 
   return (
     <Container className="main">
+      <h1><First/></h1>
       <Row>
         <Col>
           <ul className="postcard">
