@@ -33,6 +33,7 @@ mongoose.connect(mongoURI, {
 
 
 // Routes
+app.use('/'),require('./routes/FirstPage');
 app.use('/api', require('./routes/User'));
 app.use('/api', require('./routes/LoginRoute'));
 app.use('/api', require('./routes/profile'));
