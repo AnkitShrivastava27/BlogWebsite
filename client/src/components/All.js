@@ -6,7 +6,8 @@ import moment from 'moment';
 
 
 const All = () => {
-  const API_BASE_URL = process.env.BACKENDLINK;
+  const API_BASE_URL = process.env.REACT_APP_API_KEY;
+  const s = "http://localhost:5000/"
   const usernameFromCookie = Cookies.get('username');
 
   const [posts, setPosts] = useState([]);
