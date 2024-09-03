@@ -6,6 +6,7 @@ import moment from 'moment';
 import First from "./First";
 
 const All = () => {
+  const API_BASE_URL = process.env.BACKENDLINK;
   const usernameFromCookie = Cookies.get('username');
 
   const [posts, setPosts] = useState([]);
@@ -18,7 +19,7 @@ const All = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("https://wrightist-backend.vercel.app/api/allpost");
+      const response = await fetch(API_BASE_URL+"api/allpost");
       const data = await response.json();
 
       
@@ -36,7 +37,7 @@ const All = () => {
 
   const fetchLikes = async (postid) => {
     try {
-      const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
+      const response = await fetch(API_BASE_URL+`api/GetLikes/${postid}`);
       const data = await response.json();
       setLikesData(prevLikesData => ({
         ...prevLikesData,
@@ -50,7 +51,7 @@ const All = () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://wrightist-backend.vercel.app/api/like", {
+      const response = await fetch(API_BASE_URL+"api/like", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

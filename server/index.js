@@ -6,7 +6,7 @@ const cors = require('cors');
 
 // CORS configuration
 const corsOptions = {
-  origin: "*", // Replace with your frontend URL in production
+  origin: "https://wrightist.vercel.app/", 
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"]
 };
@@ -22,7 +22,7 @@ const mongoURI = process.env.MONGO_URI || "mongodb+srv://ankit:12ankit3@new.cq1e
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true // Remove useCreateIndex from options
+  useUnifiedTopology: true 
 })
 .then(() => {
   console.log('Connected to MongoDB');
