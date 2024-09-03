@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Home.css";
 import Cookies from 'js-cookie';
 import moment from 'moment';
-import First from "./First";
+
 
 const All = () => {
   const API_BASE_URL = process.env.BACKENDLINK;
@@ -74,7 +74,7 @@ const All = () => {
 
   return (
     <Container className="main">
-      <h1><First/> here... </h1>
+      
       <Row>
         <Col>
           <ul className="postcard">

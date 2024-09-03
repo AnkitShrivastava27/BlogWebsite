@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const Science = () => {
   const usernameFromCookie = Cookies.get('username');
- 
+  const API_BASE_URL = process.env.BACKENDLINK;
   const [posts, setPosts] = useState([]);
   const [likesData, setLikesData] = useState({});
   const Author = usernameFromCookie;
@@ -20,7 +20,7 @@ const Science = () => {
  const fetchPosts = async () => {
     try {
       
-      const response = await  fetch(`http://localhost:5000/api/getpost/${genere}`)
+      const response = await  fetch(API_BASE_URL+`api/getpost/${genere}`)
       const data = await response.json();
 
       // Sort posts by createdAt in descending order
@@ -38,7 +38,7 @@ const Science = () => {
 
   const fetchLikes = async (postid) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/GetLikes/${postid}`);
+      const response = await fetch(API_BASE_URL+`api/GetLikes/${postid}`);
       const data = await response.json();
       setLikesData(prevLikesData => ({
         ...prevLikesData,
@@ -52,7 +52,7 @@ const Science = () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://wrightist-backend.vercel.app/api/like", {
+      const response = await fetch(API_BASE_URL+"api/like", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

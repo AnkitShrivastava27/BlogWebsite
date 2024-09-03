@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
   const navigate = useNavigate();
+  const API_BASE_URL = process.env.BACKENDLINK;
   const [formData, setFormData] = useState({
     username: '',
     fullname: '',
@@ -23,7 +24,7 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://wrightist-backend.vercel.app/api/signup', {
+      const response = await fetch(API_BASE_URL+'api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

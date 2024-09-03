@@ -5,11 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 function Login() {
+  const API_BASE_URL = process.env.BACKENDLINK;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
  
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate(); 
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -23,7 +24,7 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://wrightist-backend.vercel.app/api/login', {
+      const response = await fetch(API_BASE_URL+'api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
