@@ -33,17 +33,17 @@ mongoose.connect(mongoURI, {
 
 
 // Routes
-app.use('/',require('./routes/FirstPage'));
-app.use('/api', require('./routes/User'));
-app.use('/api', require('./routes/LoginRoute'));
-app.use('/api', require('./routes/profile'));
-app.use('/api', require('./routes/newpost'));
-app.use('/api', require('./routes/mypost'));
-app.use('/api', require('./routes/home'));
-app.use('/api', require('./routes/likes'));
-app.use('/api', require('./routes/GetLikes'));
-app.use('/api', require('./routes/getpost'));
-app.use('/api', require('./routes/Delete'));
+app.use('/',require('../routes/FirstPage'));
+app.use('/api', require('../routes/User'));
+app.use('/api', require('../routes/LoginRoute'));
+app.use('/api', require('../routes/profile'));
+app.use('/api', require('../routes/newpost'));
+app.use('/api', require('../routes/mypost'));
+app.use('/api', require('../routes/home'));
+app.use('/api', require('../routes/likes'));
+app.use('/api', require('../routes/GetLikes'));
+app.use('/api', require('../routes/getpost'));
+app.use('/api', require('../routes/Delete'));
 
 // Start the server
 const port = process.env.PORT || 5000;
