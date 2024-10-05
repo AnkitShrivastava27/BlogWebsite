@@ -4,15 +4,25 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
 
-// CORS configuration
+// CORS configuration using the cors middleware
 const corsOptions = {
-  origin: "https://wrightist-tjzc3fgu7-ankitshrivastava27s-projects.vercel.app", // Your frontend URL
+  origin: "https://wrightist.vercel.app", // Your frontend URL
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"]
 };
 
+// Middleware for CORS (if you want to use the middleware approach)
+// app.use(cors(corsOptions));
+
+// Manual CORS headers setup (if you prefer this method)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://wrightist.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 // Middleware
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,9 +37,6 @@ mongoose.connect(mongoURI)
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-
-// Enable CORS for preflight requests
-app.options('*', cors(corsOptions)); // Handle preflight requests
 
 // Routes
 app.use('/', require('./routes/FirstPage')); // Adjust the path as needed
