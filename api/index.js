@@ -6,7 +6,7 @@ const cors = require('cors');
 
 // CORS configuration
 const corsOptions = {
-  origin: "https://wrightist-p6uxroxk2-ankitshrivastava27s-projects.vercel.app", // Remove trailing slash
+  origin: "https://wrightist-tjzc3fgu7-ankitshrivastava27s-projects.vercel.app", // Your frontend URL
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"]
 };
@@ -21,16 +21,18 @@ const mongoURI = process.env.MONGO_URI || "mongodb+srv://ankit:12ankit3@new.cq1e
 
 // Connect to MongoDB
 mongoose.connect(mongoURI)
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('Error connecting to MongoDB:', error);
-});
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
+
+// Enable CORS for preflight requests
+app.options('*', cors(corsOptions)); // Handle preflight requests
 
 // Routes
-// Make sure the path to routes is correct
-app.use('/', require('./routes/FirstPage')); // Adjusted path
+app.use('/', require('./routes/FirstPage')); // Adjust the path as needed
 app.use('/api', require('./routes/User'));
 app.use('/api', require('./routes/LoginRoute'));
 app.use('/api', require('./routes/profile'));
