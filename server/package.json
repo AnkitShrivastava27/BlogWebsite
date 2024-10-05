@@ -2,11 +2,11 @@
   "name": "project",
   "version": "1.0.0",
   "description": "this is backend for this project",
-  "main": "server/api/index.js",  // Correct path to the entry file
+  "main": "server/api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/api/index.js",  // Correct start script
-    "dev": "nodemon server/api/index.js",  // Use nodemon for development
+    "start": "node server/api/index.js",
+    "dev": "nodemon server/api/index.js",
     "build": "npm install"
   },
   "author": "Ankit",
