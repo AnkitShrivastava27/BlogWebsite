@@ -20,7 +20,7 @@ const All = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch(API_BASE_URL+"api/allpost");
+      const response = await fetch(`${API_BASE_URL}api/allpost`);
       const data = await response.json();
 
       
