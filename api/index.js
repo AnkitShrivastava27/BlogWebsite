@@ -1,45 +1,34 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
-require('dotenv').config();
 const cors = require('cors');
+const morgan = require('morgan'); // Optional for logging
+require('dotenv').config();
 
-// CORS configuration using the cors middleware
+const app = express();
+
+// CORS configuration
 const corsOptions = {
-  origin: "https://wrightist.vercel.app", // Your frontend URL
+  origin: "https://wrightist.vercel.app",
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"]
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
-// Middleware for CORS (if you want to use the middleware approach)
-// app.use(cors(corsOptions));
-
-// Manual CORS headers setup (if you prefer this method)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://wrightist.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
 // Middleware
+app.use(cors(corsOptions));
+app.use(morgan('dev')); // Optional
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// MongoDB URI from environment variables or default value
+// MongoDB URI
 const mongoURI = process.env.MONGO_URI || "mongodb+srv://ankit:12ankit3@new.cq1ewgq.mongodb.net/";
 
 // Connect to MongoDB
 mongoose.connect(mongoURI)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.error('Error connecting to MongoDB:', error));
 
 // Routes
-app.use('/', require('./routes/FirstPage')); // Adjust the path as needed
+app.use('/', require('./routes/FirstPage'));
 app.use('/api', require('./routes/User'));
 app.use('/api', require('./routes/LoginRoute'));
 app.use('/api', require('./routes/profile'));
@@ -50,6 +39,15 @@ app.use('/api', require('./routes/likes'));
 app.use('/api', require('./routes/GetLikes'));
 app.use('/api', require('./routes/getpost'));
 app.use('/api', require('./routes/Delete'));
+
+// Health check route (Optional)
+app.get('/health', (req, res) => res.send('Server is healthy!'));
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 // Start the server
 const port = process.env.PORT || 5000;
