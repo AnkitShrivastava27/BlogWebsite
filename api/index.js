@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
 require('dotenv').config();
 
 const app = express();
@@ -12,9 +11,6 @@ const corsOptions = {
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
-
-// Middleware
-app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -41,8 +37,7 @@ app.use('/api', require('./routes/GetLikes'));
 app.use('/api', require('./routes/getpost'));
 app.use('/api', require('./routes/Delete'));
 
-// Health check route (Optional)
-app.get('/health', (req, res) => res.send('Server is healthy!'));
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
