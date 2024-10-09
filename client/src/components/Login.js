@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-
 import Cookies from 'js-cookie';
+import './Login.css'; // Import the CSS file for custom styling
 
 function Login() {
   const API_BASE_URL = process.env.BACKENDLINK;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
- 
   const navigate = useNavigate(); 
 
   const handleUsernameChange = (event) => {
@@ -33,36 +32,29 @@ function Login() {
       });
 
       if (response.ok) {
-        // Redirect to profile page upon successful login with username parameter
-       
         Cookies.set('username', username, { expires: 1 / 24 });
         navigate('/profile');
-
-       
         console.log('Login successful');
-        
       } else {
         console.error('Login failed');
-        alert("your userid or password is wrong")
+        alert("Your username or password is incorrect");
       }
     } catch (error) {
       console.error('Error logging in:', error);
     }
 
-    
     setUsername('');
     setPassword('');
   };
 
   return (
-    <Container className="mt-5">
-
+    <Container className="login-container mt-5">
       <Row className="justify-content-center">
         <Col md={6}>
           <div className="text-center mb-4">
             <h2>Login</h2>
           </div>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="login-form">
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
               <Form.Control
@@ -70,6 +62,8 @@ function Login() {
                 placeholder="Enter username"
                 value={username}
                 onChange={handleUsernameChange}
+                required
+                className="form-input"
               />
             </Form.Group>
             <Form.Group controlId="formPassword">
@@ -79,10 +73,12 @@ function Login() {
                 placeholder="Enter password"
                 value={password}
                 onChange={handlePasswordChange}
+                required
+                className="form-input"
               />
             </Form.Group>
             <div className="text-center">
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="submit-button">
                 Login
               </Button>
             </div>

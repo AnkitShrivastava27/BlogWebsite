@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import './SignupPage.css'; // Import the CSS file for custom styling
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -34,20 +35,25 @@ const SignupPage = () => {
 
       const data = await response.json();
       console.log(data); // Log response from the backend
+      // Optionally handle response messages here
+
+      // Reset form and navigate to login page
+      setFormData({
+        username: '',
+        fullname: '',
+        email: '',
+        password: ''
+      });
+      navigate('/login');
     } catch (error) {
       console.error('Error signing up:', error);
     }
-    setFormData({username: '',
-    fullname: '',
-    email: '',
-    password: ''})
-    navigate('/login')
   };
 
   return (
-    <Container className="mt-5">
-      <h1>Sign Up</h1>
-      <Form onSubmit={handleSubmit}>
+    <Container className="signup-container mt-5">
+      <h1 className="text-center">Sign Up</h1>
+      <Form onSubmit={handleSubmit} className="signup-form">
         <Form.Group controlId="username">
           <Form.Label>User Name</Form.Label>
           <Form.Control
@@ -57,17 +63,19 @@ const SignupPage = () => {
             value={formData.username}
             onChange={handleChange}
             required
+            className="form-input"
           />
         </Form.Group>
         <Form.Group controlId="fullname">
           <Form.Label>Full Name</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter your Full name"
+            placeholder="Enter your full name"
             name="fullname"
             value={formData.fullname}
             onChange={handleChange}
             required
+            className="form-input"
           />
         </Form.Group>
         <Form.Group controlId="email">
@@ -79,6 +87,7 @@ const SignupPage = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            className="form-input"
           />
         </Form.Group>
         <Form.Group controlId="password">
@@ -90,9 +99,10 @@ const SignupPage = () => {
             value={formData.password}
             onChange={handleChange}
             required
+            className="form-input"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="submit-button">
           Sign Up
         </Button>
       </Form>

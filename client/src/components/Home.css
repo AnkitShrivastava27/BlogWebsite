@@ -1,40 +1,25 @@
-/* .main {
-  padding: 20px;
-  background-color: #ffffff; 
-  border-radius: 8px; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-} */
-
-ul.postcard {
-  list-style-type: none;
-  padding: 0;
+.main {
+  margin-top: 20px;
 }
 
-li.li {
-  margin-bottom: 20px; /* Spacing between posts */
+.postcard {
+  padding: 0;
+  list-style: none;
 }
 
 .card {
-  transition: transform 0.2s; /* Smooth transition for hover effect */
-}
-
-.card:hover {
-  transform: scale(1.02); /* Slightly enlarge card on hover */
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .like-button {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px; /* Larger like button font */
+  font-size: 1.2rem;
 }
 
-.post {
-  margin: 15px 0; /* Spacing within card */
-}
-
-@media (max-width: 768px) {
-  .main {
-    width: 100%; /* Full width on smaller screens */
-  }
+.like-button:disabled {
+  cursor: default;
 }

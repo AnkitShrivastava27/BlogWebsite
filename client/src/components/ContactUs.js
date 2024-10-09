@@ -20,7 +20,7 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // stiil pending to send data to api or db
+    // Pending to send data to API or DB
     console.log('Form submitted:', formData);
 
     // Optionally reset the form
@@ -32,10 +32,10 @@ const ContactUs = () => {
     <div className="contact-us">
       <h2>Contact Us</h2>
       {submitted ? (
-        <p>Thank you for your message! We'll get back to you soon.</p>
+        <p className="thank-you-message">Thank you for your message! We'll get back to you soon.</p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <div>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
               type="text"
@@ -44,9 +44,10 @@ const ContactUs = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              className="form-input"
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -55,9 +56,10 @@ const ContactUs = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              className="form-input"
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
@@ -65,9 +67,10 @@ const ContactUs = () => {
               value={formData.message}
               onChange={handleChange}
               required
+              className="form-textarea"
             ></textarea>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="submit-button">Submit</button>
         </form>
       )}
     </div>

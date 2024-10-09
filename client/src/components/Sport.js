@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Home.css";
 import Cookies from 'js-cookie';
@@ -6,7 +6,6 @@ import moment from 'moment';
 
 const Sport = () => {
   const usernameFromCookie = Cookies.get('username');
-  const API_BASE_URL = process.env.BACKENDLINK;
   const [posts, setPosts] = useState([]);
   const [likesData, setLikesData] = useState({});
   const Author = usernameFromCookie;
@@ -16,11 +15,9 @@ const Sport = () => {
     fetchPosts();
   }, []);
 
-
- const fetchPosts = async () => {
+  const fetchPosts = async () => {
     try {
-      
-      const response = await  fetch(`https://wrightist.vercel.app/api/getpost/${genere}`)
+      const response = await fetch(`https://wrightist.vercel.app/api/getpost/${genere}`);
       const data = await response.json();
 
       // Sort posts by createdAt in descending order
@@ -74,38 +71,34 @@ const Sport = () => {
   };
 
   return (
-    <Container className="main">
+    <Container className="main mt-4">
       <Row>
-        <Col>
-          <ul className="postcard">
-            {posts.map(({ pid, postTitle, author, postContent, createdAt }) => (
-              <li key={pid} className="li">
-                <Card style={{ width: "58rem" }} className="card">
-                  <Card.Body className="post">
-                    <Card.Title><h3>{postTitle}</h3></Card.Title>
-                    <Card.Subtitle>Author: {author}</Card.Subtitle><br/>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      Posted on: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
-                    </Card.Subtitle>
-                    <hr />
-                    <Card.Text>{postContent}</Card.Text>
-                    <hr />
-                    <div>
-                      <strong>{likesData[pid]?.NbrLikes || 0} Likes</strong> |
-                      <button
-                        className="like-button"
-                        onClick={(e) => handleLikes(e, pid)}
-                        disabled={likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie)}
-                      >
-                        {likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie) ? '❤️' : '🤍'}
-                      </button>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        </Col>
+        {posts.map(({ pid, postTitle, author, postContent, createdAt }) => (
+          <Col md={6} lg={4} className="mb-4" key={pid}>
+            <Card className="h-100">
+              <Card.Body>
+                <Card.Title as="h3">{postTitle}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">Author: {author}</Card.Subtitle>
+                <Card.Subtitle className="mb-3 text-muted">
+                  Posted on: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                </Card.Subtitle>
+                <hr />
+                <Card.Text>{postContent}</Card.Text>
+                <hr />
+                <div className="d-flex justify-content-between align-items-center">
+                  <strong>{likesData[pid]?.NbrLikes || 0} Likes</strong>
+                  <button
+                    className="like-button btn btn-outline-primary"
+                    onClick={(e) => handleLikes(e, pid)}
+                    disabled={likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie)}
+                  >
+                    {likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie) ? '❤️' : '🤍'}
+                  </button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
     </Container>
   );

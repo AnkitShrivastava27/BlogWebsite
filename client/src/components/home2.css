@@ -1,109 +1,60 @@
-/* General Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+/* Sub Navbar Customizations */
+.subnavar .nav-link {
+  color: brown !important;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-/* Container Styles */
-.container {
-  margin: 20px auto;
+.subnavar .nav-link:hover {
+  color: #ff5722 !important;
 }
 
-/* Subnavbar Styles - Horizontal Layout for Desktop */
-.subnavar {
-  display: flex;
-  justify-content: space-around; /* Evenly distribute links */
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-  background-color: #333; /* Dark background for the navbar */
+.newpost-link {
+  background-color: #ffeb3b !important;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
 }
 
-.subnavar li {
-  padding: 10px 20px;
+.newpost-link:hover {
+  background-color: #ffc107 !important;
 }
 
-.subnavar li a {
-  color: white; /* White text for links */
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease;
-}
-
-.subnavar li a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Lighten link on hover */
-  border-radius: 4px; /* Rounded corners on hover */
-}
-
-/* Sidebar Card Styles */
-.sidecol {
+/* Sidebar Customizations */
+.sidebar {
   margin-top: 20px;
 }
 
-.card {
-  margin-bottom: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Quick Links and Social Links */
-ul.social-links {
-  list-style: none;
-  padding: 0;
-}
-
-ul.social-links li {
-  margin-bottom: 10px;
-}
-
-ul.social-links li a {
-  color: #333;
+.list-unstyled li a {
   text-decoration: none;
-  transition: color 0.3s ease;
+  color: #007bff;
 }
 
-ul.social-links li a:hover {
-  color: #6200EE; /* Change color on hover */
+.list-unstyled li a:hover {
+  color: #0056b3;
+}
+
+.list-inline li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.list-inline li a:hover {
+  color: #007bff;
 }
 
 /* Footer Styles */
 .footer {
-  list-style: none;
+  background-color: #f8f9fa;
   padding: 20px;
-  background-color: #333;
-  color: white;
-  text-align: center;
+  border-top: 1px solid #dee2e6;
 }
 
-.footer li {
-  margin-bottom: 20px;
+.footer h5 {
+  color: #333;
+  margin-bottom: 10px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  /* Stack the navbar vertically */
-  .subnavar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .subnavar li {
-    margin: 10px 0;
-  }
-
-  .subnavar li a {
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Adjust card layout for mobile */
-  .sidecol {
-    margin-top: 10px;
-  }
-
-  .card {
-    margin-bottom: 15px;
-  }
+.footer p {
+  color: #666;
 }

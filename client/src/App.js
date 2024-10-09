@@ -15,6 +15,8 @@ import Sport from './components/Sport';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import { Route,Routes} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
   return (
     <div className='body'>

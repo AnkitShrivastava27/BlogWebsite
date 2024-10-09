@@ -4,10 +4,8 @@ import "./Home.css";
 import Cookies from 'js-cookie';
 import moment from 'moment';
 
-
 const All = () => {
   const API_BASE_URL = process.env.REACT_APP_API_KEY;
-  const s = "http://localhost:5000/"
   const usernameFromCookie = Cookies.get('username');
 
   const [posts, setPosts] = useState([]);
@@ -21,14 +19,12 @@ const All = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch(`https://wrightist-backend.vercel.app/api/allpost`);
+      const response = await fetch(`${pURL}/api/allpost`);
       const data = await response.json();
 
-      
       const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setPosts(sortedData);
 
-     
       sortedData.forEach(post => {
         fetchLikes(post.pid);
       });
@@ -39,7 +35,7 @@ const All = () => {
 
   const fetchLikes = async (postid) => {
     try {
-      const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
+      const response = await fetch(`${pURL}/api/GetLikes/${postid}`);
       const data = await response.json();
       setLikesData(prevLikesData => ({
         ...prevLikesData,
@@ -53,7 +49,7 @@ const All = () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://wrightist-backend.vercel.app/api/allpost`, {
+      const response = await fetch(`${pURL}/api/allpost`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -63,7 +59,6 @@ const All = () => {
 
       if (response.ok) {
         console.log("Post liked successfully!");
-       
         fetchLikes(pid);
       } else {
         const result = await response.json();
@@ -76,39 +71,34 @@ const All = () => {
 
   return (
     <Container className="main">
-      
       <Row>
-        <Col>
-          <ul className="postcard">
-            {posts.map(({ pid, postTitle, author, postContent, createdAt }) => (
-              <li key={pid} className="li">
-                <Card style={{ width: "58rem" }} className="card">
-                  <Card.Body className="post">
-                    <Card.Title><h3>{postTitle}</h3></Card.Title>
-                    <Card.Subtitle>Author: {author}</Card.Subtitle>
-                    <br/>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      Posted on: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
-                    </Card.Subtitle>
-                    <hr />
-                    <Card.Text>{postContent}</Card.Text>
-                    <hr />
-                    <div>
-                      <strong>{likesData[pid]?.NbrLikes || 0} Likes</strong> |
-                      <button
-                        className="like-button"
-                        onClick={(e) => handleLikes(e, pid)}
-                        disabled={likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie)}
-                      >
-                        {likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie) ? '❤️' : '🤍'}
-                      </button>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        </Col>
+        {posts.map(({ pid, postTitle, author, postContent, createdAt }) => (
+          <Col key={pid} xs={12} md={6} lg={4} className="mb-4"> {/* Responsive column sizes */}
+            <Card className="card">
+              <Card.Body className="post">
+                <Card.Title><h3>{postTitle}</h3></Card.Title>
+                <Card.Subtitle>Author: {author}</Card.Subtitle>
+                <br />
+                <Card.Subtitle className="mb-2 text-muted">
+                  Posted on: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                </Card.Subtitle>
+                <hr />
+                <Card.Text>{postContent}</Card.Text>
+                <hr />
+                <div>
+                  <strong>{likesData[pid]?.NbrLikes || 0} Likes</strong> |
+                  <button
+                    className="like-button"
+                    onClick={(e) => handleLikes(e, pid)}
+                    disabled={likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie)}
+                  >
+                    {likesData[pid]?.alllikes?.some(like => like.author === usernameFromCookie) ? '❤️' : '🤍'}
+                  </button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
     </Container>
   );

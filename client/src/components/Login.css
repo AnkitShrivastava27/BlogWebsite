@@ -1,0 +1,28 @@
+.login-container {
+    background-color: #f9f9f9; /* Light background for the login container */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .login-form {
+    margin-top: 20px; /* Space above the form */
+  }
+  
+  .form-input {
+    border-radius: 4px; /* Rounded corners for inputs */
+  }
+  
+  .submit-button {
+    width: 100%; /* Full width for the submit button */
+    margin-top: 10px; /* Space above the button */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    transition: background-color 0.3s; /* Transition for hover effect */
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+  

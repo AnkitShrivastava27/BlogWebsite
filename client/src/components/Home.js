@@ -7,23 +7,29 @@ import DateTimeDisplay from "./DateTimeDisplay";
 const Home = () => {
   return (
     <Container>
-      <ul className='subnavar'>
-        <li><Link to='/'>All</Link></li>
-        <li><Link to='/scifi'>Scifi</Link></li>
-        <li><Link to='/science'>Science & Tech</Link></li>
-        <li><Link to='/political'>Political</Link></li>
-        <li><Link to='/sport'>Sport</Link></li>
-      </ul>
-
+      {/* Navigation Bar */}
       <Row>
         <Col>
+          <ul className='subnavar d-flex justify-content-around p-3'>
+            <li><Link to='/'>All</Link></li>
+            <li><Link to='/scifi'>Scifi</Link></li>
+            <li><Link to='/science'>Science & Tech</Link></li>
+            <li><Link to='/political'>Political</Link></li>
+            <li><Link to='/sport'>Sport</Link></li>
+          </ul>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col md={8} className="mb-4">
           <Outlet />
         </Col>
-        <Col className="sidecol">
-          <Card style={{ width: '18rem' }}>
+        <Col md={4} className="sidecol">
+          <Card className="mb-4">
             <Card.Body>
+              <Card.Title>New Blog</Card.Title>
               <Card.Text>
-                <Link to='/new'>New Blog</Link>
+                <Link to='/new'>Create a New Blog Post</Link>
                 <hr />
                 <DateTimeDisplay />
                 <hr />
@@ -38,7 +44,7 @@ const Home = () => {
                 <hr />
                 <div>
                   <h5>Follow Us</h5>
-                  <ul className="social-links">
+                  <ul className="social-links list-unstyled">
                     <li><a href="https://github.com/AnkitShrivastava27" target="_blank" rel="noopener noreferrer">Github</a></li>
                     <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                     <li><a href="https://www.instagram.com/3dcosm?igsh=MTZrNjZ3OTNmYTBhaw==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -52,9 +58,10 @@ const Home = () => {
         </Col>
       </Row>
 
+      {/* Footer */}
       <Row>
         <Col>
-          <ul className="footer">
+          <ul className="footer list-unstyled">
             <li>
               <h3>Contact Us</h3>
               <p>+91 000000000</p>

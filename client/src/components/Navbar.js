@@ -1,24 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../images/wRIGHTISTs_transparent.png';
-//import Logout from "./Logout";
-//import Cookies from 'js-cookie';
 import "./navbar.css";
+import { Navbar, Nav } from 'react-bootstrap';
 
-const Navbar = () => {
-  //const usernameFromCookie = Cookies.get('username');
-
+const NavbarComponent = () => {
   return (
-    <div>  
-      <ul className='navar' >
-        <li><Link to="/" style={{textDecoration:'none', color:'brown'}}>Home</Link></li>
-        <li><Link to="/profile"  style={{textDecoration:'none', color:'brown'}}>Profile</Link></li>
-        <li className="login"><Link to="/login" style={{textDecoration:'none', color:'brown'}}>Login/signup</Link></li>
-       
-        <li><img src={logo} alt='logo' className="logo" /></li>
-      </ul>
-    </div>
+    <Navbar bg="light" expand="lg" className="mb-4">
+      <Navbar.Brand as={Link} to="/">
+        <img src={logo} alt='logo' className="logo" style={{ width: '50px' }} />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Item>
+            <Nav.Link as={Link} to="/" style={{ color: 'brown' }}>Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/profile" style={{ color: 'brown' }}>Profile</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/login" style={{ color: 'brown' }}>Login/Signup</Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavbarComponent;
