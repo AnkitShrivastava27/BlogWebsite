@@ -1,25 +1,42 @@
-.navar{
+.navar {
   padding-top: 20px;
   list-style: none;
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items:center;
-background-color: rgba(185, 243, 224, 0.574);
- 
-
+  align-items: center;
+  background-color: rgba(185, 243, 224, 0.574);
 }
-.navar li{
+
+.navar li {
   margin-left: 50px;
   padding-bottom: 21px;
 }
-.body{
+
+.body {
   background-color: blanchedalmond;
 }
-.logo{
+
+.logo {
   height: 30px;
 }
-link{
- 
+
+link {
   text-decoration: none;
-  color:brown;
+  color: brown;
+}
+
+@media (max-width: 768px) {
+  .navar {
+    flex-direction: column;
+    padding-top: 15px;
+  }
+
+  .navar li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  
+  .logo {
+    height: 25px;
+  }
 }

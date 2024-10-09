@@ -1,32 +1,53 @@
 .profile {
-    padding: 20px;
+  padding: 20px;
+}
+
+.profilepic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.main {
+  margin-bottom: 20px;
+}
+
+.card-subtitle {
+  font-size: 18px;
+}
+
+.card-text {
+  font-size: 16px;
+}
+
+.text-muted {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .profile {
+      padding: 15px;
   }
-  
-  .profilepic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 0 auto;
-    display: block;
-  }
-  
+
   .title {
-    font-size: 24px;
+      font-size: 20px;
   }
-  
-  .main {
-    margin-bottom: 20px;
-  }
-  
+
   .card-subtitle {
-    font-size: 18px;
+      font-size: 16px;
   }
-  
+
   .card-text {
-    font-size: 16px;
+      font-size: 14px;
   }
-  
+
   .text-muted {
-    font-size: 14px;
+      font-size: 12px;
   }
-  
+}

@@ -41,3 +41,18 @@
   background-color: #6c757d;
   cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px; 
+    margin: 20px; 
+  }
+
+  .input-title, .input-post, .select-genre, .submit-button {
+    font-size: 14px; 
+  }
+
+  .input-post {
+    height: 120px; 
+  }
+}

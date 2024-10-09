@@ -1,63 +1,63 @@
-
-.footer{
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-    color: white;
-    background-color: black;
-   
+.footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  background-color: black;
   padding-top: 10px;
-  }
-  .dnconsol{
-    display: flex;
-    justify-content: space-around;
-  }
-  
-.subnavar{
+}
+
+.dnconsol {
+  display: flex;
+  justify-content: space-around;
+}
+
+.subnavar {
   list-style: none;
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   background-color: rgba(185, 223, 243, 0.574);
   font-size: medium;
 }
 
-.subnavar li{
+.subnavar li {
   padding-top: 20px;
   margin-left: 50px;
   padding-bottom: 21px;
 }
+
 .postcard {
-list-style: none;
-background-color: transparent;
-}
-ul{
+  list-style: none;
   background-color: transparent;
 }
+
+ul {
+  background-color: transparent;
+}
+
 /* Home.css */
-.post{
+.post {
   background-color: rgba(237, 234, 234, 0.533);
-  
 }
-.li{
- margin-bottom: 20px;
+
+.li {
+  margin-bottom: 20px;
 }
+
 .postcard {
   list-style: none;
   padding: 0;
- 
- 
   background-color: transparent;
 }
 
-.main{
-  background-color:transparent;
+.main {
+  background-color: transparent;
 }
 
-.btn{
-
+.btn {
   border: none;
-  background-color:transparent;
+  background-color: transparent;
 }
 
 .like-button {
@@ -69,8 +69,7 @@ ul{
   font-size: 16px;
   margin-left: 10px;
   transition: all 0.3s ease;
-  filter: drop-shadow(1px 1px 20px red
-  );
+  filter: drop-shadow(1px 1px 20px red);
 }
 
 .like-button:disabled {
@@ -80,5 +79,27 @@ ul{
 
 .like-button:hover:not(:disabled) {
   border-color: transparent;
-  color:transparent;
+  color: transparent;
+}
+
+
+@media (max-width: 768px) {
+  .footer {
+      flex-direction: column; 
+      align-items: center; 
+      padding: 20px 0; 
+  }
+
+  .subnavar li {
+      margin-left: 0; 
+      padding: 10px 0; 
+  }
+
+  .like-button {
+      font-size: 14px; 
+  }
+
+  .post {
+      padding: 10px; 
+  }
 }
