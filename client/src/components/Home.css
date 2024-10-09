@@ -1,10 +1,16 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Default font for better readability */
+}
+
 .footer {
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
   color: white;
   background-color: black;
-  padding-top: 10px;
+  padding: 10px 0; /* Adjusted for consistent vertical padding */
 }
 
 .dnconsol {
@@ -22,13 +28,12 @@
 }
 
 .subnavar li {
-  padding-top: 20px;
-  margin-left: 50px;
-  padding-bottom: 21px;
+  padding: 20px 50px; /* Combined padding for consistency */
 }
 
 .postcard {
   list-style: none;
+  padding: 0;
   background-color: transparent;
 }
 
@@ -39,29 +44,25 @@ ul {
 /* Home.css */
 .post {
   background-color: rgba(237, 234, 234, 0.533);
+  padding: 15px; /* Added padding for better spacing */
 }
 
 .li {
   margin-bottom: 20px;
 }
 
-.postcard {
-  list-style: none;
-  padding: 0;
-  background-color: transparent;
-}
-
 .main {
   background-color: transparent;
 }
 
+/* Button Styles */
 .btn {
   border: none;
   background-color: transparent;
 }
 
 .like-button {
-  border: transparent;
+  border: none; /* Removed border for better aesthetics */
   background-color: transparent;
   color: black;
   padding: 5px 10px;
@@ -78,16 +79,15 @@ ul {
 }
 
 .like-button:hover:not(:disabled) {
-  border-color: transparent;
-  color: transparent;
+  color: transparent; /* Hides text on hover */
 }
 
-
+/* Responsive Styles */
 @media (max-width: 768px) {
   .footer {
-      flex-direction: column; 
-      align-items: center; 
-      padding: 20px 0; 
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
   }
 
   .subnavar li {
@@ -101,5 +101,20 @@ ul {
 
   .post {
       padding: 10px; 
+  }
+
+  /* Additional responsive styles for better layout on small screens */
+  .dnconsol {
+      flex-direction: column; /* Stack elements vertically on small screens */
+      align-items: center; /* Center align items */
+  }
+
+  .subnavar {
+      flex-wrap: wrap; /* Allow wrapping of navigation items */
+  }
+
+  .subnavar li {
+      margin-left: 10px; /* Reduced margin for smaller screens */
+      margin-bottom: 10px; /* Added spacing between items */
   }
 }
