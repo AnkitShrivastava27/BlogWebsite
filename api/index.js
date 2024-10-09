@@ -8,7 +8,7 @@ const app = express();
 // CORS configuration
 
 app.use(cors({
-  origin: "https://wrightist.vercel.app/api/allpost"
+  origin: "https://wrightist.vercel.app/"
 }));
 app.use(express.json());
 
