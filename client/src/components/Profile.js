@@ -16,7 +16,7 @@ const Profile = () => {
   Cookies.set('fullname', fullname, { expires: 1 / 24 });
 
   const fetchPost = useCallback(() => {
-    fetch(API_BASE_URL+`api/mypost/${usernameFromCookie}`)
+    fetch(`${API_BASE_URL}api/mypost/${usernameFromCookie}`)
       .then((resp) => resp.json())
       .then((resp) => setMyPost(resp))
       .catch((e) => {
@@ -25,7 +25,7 @@ const Profile = () => {
   }, [usernameFromCookie]);
 
   const fetchUser = useCallback(() => {
-    fetch(API_BASE_URL+`api/users/${usernameFromCookie}`)
+    fetch(`${API_BASE_URL}api/users/${usernameFromCookie}`)
       .then((resp) => resp.json())
       .then((userData) => setUd(userData))
       .catch((e) => {
@@ -57,7 +57,7 @@ const Profile = () => {
   }, [mypost]);
 
   const fetchLikesForPost = useCallback((postId) => {
-    return fetch(API_BASE_URL+`api/GetLikes/${postId}`)
+    return fetch(`${API_BASE_URL}api/GetLikes/${postId}`)
       .then((resp) => resp.json())
       .then((data) => data.NbrLikes)
       .catch((error) => {
@@ -68,7 +68,7 @@ const Profile = () => {
 
   const handleDeletePost = useCallback((postId) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
-      fetch(API_BASE_URL+`api/deletepost/${postId}`, {
+      fetch(`${API_BASE_URL}api/deletepost/${postId}`, {
         method: 'DELETE',
       })
         .then((resp) => {

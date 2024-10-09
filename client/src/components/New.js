@@ -28,7 +28,7 @@ const New = () => {
     event.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch(API_BASE_URL+"api/newposts", {
+      const response = await fetch(`${API_BASE_URL}"api/newposts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -20,7 +20,7 @@ const Scific = () => {
  const fetchPosts = async () => {
     try {
       const genere = "Scifi";
-      const response = await  fetch(API_BASE_URL+`api/getpost/${genere}`)
+      const response = await  fetch(`${API_BASE_URL}api/getpost/${genere}`)
       const data = await response.json();
 
       // for Sorting posts by createdAt in descending order
@@ -38,7 +38,7 @@ const Scific = () => {
 
   const fetchLikes = async (postid) => {
     try {
-      const response = await fetch(API_BASE_URL+`api/GetLikes/${postid}`);
+      const response = await fetch(`${API_BASE_URL}api/GetLikes/${postid}`);
       const data = await response.json();
       setLikesData(prevLikesData => ({
         ...prevLikesData,
@@ -52,7 +52,7 @@ const Scific = () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch(API_BASE_URL+"api/like", {
+      const response = await fetch(`${API_BASE_URL}api/like`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
