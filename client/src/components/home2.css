@@ -1,34 +1,109 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Container Styles */
+.container {
+  margin: 20px auto;
+}
+
+/* Subnavbar Styles - Horizontal Layout for Desktop */
 .subnavar {
-  list-style-type: none;
-  padding: 0; /* Remove default padding */
-  display: flex; /* Flexbox for horizontal layout */
-  justify-content: space-around; /* Space items evenly */
-  background-color: #007bff; /* Navbar background color */
-  color: white;
-  margin-bottom: 20px; /* Space below navbar */
+  display: flex;
+  justify-content: space-around; /* Evenly distribute links */
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  background-color: #333; /* Dark background for the navbar */
+}
+
+.subnavar li {
+  padding: 10px 20px;
 }
 
 .subnavar li a {
-  color: white; /* White text color */
+  color: white; /* White text for links */
   text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease;
 }
 
 .subnavar li a:hover {
-  text-decoration: underline; /* Underline on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Lighten link on hover */
+  border-radius: 4px; /* Rounded corners on hover */
 }
 
+/* Sidebar Card Styles */
 .sidecol {
-  padding: 20px; /* Padding inside side column */
+  margin-top: 20px;
 }
 
+.card {
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Quick Links and Social Links */
+ul.social-links {
+  list-style: none;
+  padding: 0;
+}
+
+ul.social-links li {
+  margin-bottom: 10px;
+}
+
+ul.social-links li a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+ul.social-links li a:hover {
+  color: #6200EE; /* Change color on hover */
+}
+
+/* Footer Styles */
 .footer {
-  display: flex; /* Flexbox for footer layout */
-  justify-content: space-around; /* Space items evenly */
-  padding: 20px; /* Padding inside footer */
-  background-color: #343a40; /* Dark footer background */
-  color: white; /* White text for footer */
+  list-style: none;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
 }
 
-.footer h3 {
-  margin-bottom: 10px; /* Space below heading */
+.footer li {
+  margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Stack the navbar vertically */
+  .subnavar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subnavar li {
+    margin: 10px 0;
+  }
+
+  .subnavar li a {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Adjust card layout for mobile */
+  .sidecol {
+    margin-top: 10px;
+  }
+
+  .card {
+    margin-bottom: 15px;
+  }
 }
