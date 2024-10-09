@@ -25,7 +25,7 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://wrightist.vercel.app/api/signup', {
+      const response = await fetch('https://wrightist-backend.vercel.app/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
