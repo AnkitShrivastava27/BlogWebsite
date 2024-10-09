@@ -7,7 +7,7 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: "https://wrightist-6t16fic5i-ankitshrivastava27s-projects.vercel.app/",
+  origin: "https://wrightist-ankitshrivastava27s-projects.vercel.app/",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
