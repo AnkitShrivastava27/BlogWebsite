@@ -6,12 +6,11 @@ require('dotenv').config();
 const app = express();
 
 // CORS configuration
-
 app.use(cors({
-  origin: "https://wrightist.vercel.app/",
+  origin: "https://wrightist.vercel.app", // Remove trailing slash
 }));
-app.use(express.json());
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB URI
@@ -34,8 +33,6 @@ app.use('/api', require('./routes/likes'));
 app.use('/api', require('./routes/GetLikes'));
 app.use('/api', require('./routes/getpost'));
 app.use('/api', require('./routes/Delete'));
-
-
 
 // Error handling middleware
 app.use((err, req, res, next) => {
