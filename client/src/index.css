@@ -1,23 +1,64 @@
+/* Reset margin and set base font styles for the body */
 body {
-  margin: 0;
+  margin: 0; /* Remove default margin */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f9fa; /* Light background for better contrast */
-  color: #343a40; /* Dark text for readability */
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; /* Use modern, system-ui fonts */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering on WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering on Firefox */
+  background-color: blanchedalmond; /* Light background color */
+  color: #333; /* Default text color */
+  padding: 20px; /* Padding around the body content */
 }
 
+/* Styles for code elements */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; /* Monospaced font for code */
 }
 
+/* Navigation Bar Styles */
+.navar {
+  padding-top: 20px; /* Padding at the top */
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  background-color: rgba(185, 243, 224, 0.9); /* Semi-transparent background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  margin: 0; /* Remove default margin */
+}
+
+/* Navigation List Item Styles */
+.navar li {
+  margin-left: 30px; /* Space between items */
+}
+
+/* Navigation Link Styles */
+.navar li a {
+  text-decoration: none; /* Remove underline from links */
+  color: brown; /* Brown color for links */
+  font-weight: bold; /* Bold text for links */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navar li a:hover {
+  color: #ff5722; /* Change color on hover */
+}
+
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-  body {
-    font-size: 14px;
+  .navar {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 10px; /* Reduced padding for smaller screens */
   }
 
-  code {
-    font-size: 12px;
+  .navar li {
+    margin-left: 0; /* Remove left margin for stacked items */
+    margin-bottom: 10px; /* Space between stacked items */
+  }
+
+  .navar li a {
+    font-size: 1.1rem; /* Slightly larger text for better readability */
   }
 }

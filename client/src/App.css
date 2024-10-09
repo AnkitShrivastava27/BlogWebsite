@@ -1,92 +1,60 @@
-/* General Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+/* Navigation Bar Styles */
+.navar {
+  padding-top: 20px; /* Padding at the top */
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  background-color: rgba(185, 243, 224, 0.9); /* Semi-transparent background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  margin: 0; /* Remove default margin */
 }
 
-/* App Body */
+/* Navigation List Item Styles */
+.navar li {
+  margin-left: 30px; /* Space between items */
+}
+
+/* Navigation Link Styles */
+.navar li a {
+  text-decoration: none; /* Remove underline from links */
+  color: brown; /* Brown color for links */
+  font-weight: bold; /* Bold text for links */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navar li a:hover {
+  color: #ff5722; /* Change color on hover */
+}
+
+/* Body Styles */
 .body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: blanchedalmond; /* Light background color for the body */
+  margin: 0; /* Remove default margin */
+  font-family: 'Arial', sans-serif; /* Font for the body */
+  color: #333; /* Dark text color */
+  padding: 20px; /* Padding around the body content */
 }
 
-/* Navbar Styles */
-.navbar {
-  background-color: #333;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Logo Styles */
+.logo {
+  height: 30px; /* Set height for logo */
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Horizontal Layout for Larger Screens */
-.routes {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-/* Ensure each component takes equal space */
-.routes > * {
-  flex: 1;
-  margin: 0 10px;
-}
-
-/* Card Styles */
-.card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin-bottom: 20px;
-}
-
-h1, h2, h3 {
-  color: #333;
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-/* Media Query for Smaller Screens */
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
+  .navar {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 10px; /* Reduced padding for smaller screens */
   }
 
-  .navbar a {
-    width: 100%;
-    text-align: center;
-    padding: 8px;
-    margin: 5px 0;
+  .navar li {
+    margin-left: 0; /* Remove left margin for stacked items */
+    margin-bottom: 10px; /* Space between stacked items */
   }
 
-  .routes {
-    flex-direction: column;
-  }
-
-  .routes > * {
-    margin: 10px 0;
+  .navar li a {
+    font-size: 1.1rem; /* Slightly larger text for better readability */
   }
 }
