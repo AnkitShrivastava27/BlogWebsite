@@ -1,108 +1,40 @@
-/* Home.css */
+/* .main {
+  padding: 20px;
+  background-color: #ffffff; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+} */
 
-/* General Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif; /* Default font */
-}
-
-.main {
-  padding: 20px; /* Added padding for the main container */
-}
-
-/* Card Styles */
-.postcard {
-  list-style: none;
+ul.postcard {
+  list-style-type: none;
   padding: 0;
-  display: flex;
-  flex-direction: column; /* Stack cards vertically */
-  gap: 20px; /* Space between cards */
+}
+
+li.li {
+  margin-bottom: 20px; /* Spacing between posts */
 }
 
 .card {
-  border: 1px solid #ddd; /* Light border for cards */
-  border-radius: 8px; /* Rounded corners */
-  transition: transform 0.2s; /* Smooth hover effect */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
 }
 
 .card:hover {
   transform: scale(1.02); /* Slightly enlarge card on hover */
 }
 
-/* Post Styles */
-.post {
-  background-color: rgba(237, 234, 234, 0.9); /* Lighter background for posts */
-  padding: 15px; /* Padding inside card */
-  border-radius: 8px; /* Rounded corners for post content */
-}
-
-/* Button Styles */
 .like-button {
+  background: none;
   border: none;
-  background-color: transparent;
-  color: black;
-  padding: 5px 10px;
   cursor: pointer;
-  font-size: 16px;
-  margin-left: 10px;
-  transition: all 0.3s ease;
+  font-size: 16px; /* Larger like button font */
 }
 
-.like-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .postcard {
-      flex-direction: column; /* Stack cards vertically on medium screens */
-  }
-
-  .card {
-      width: 100%; /* Full width on medium screens */
-  }
-}
-
-@media (max-width: 992px) {
-  .main {
-      padding: 15px; /* Reduce padding for smaller screens */
-  }
-
-  .like-button {
-      font-size: 14px; /* Smaller font size for buttons */
-  }
-
-  .card {
-      width: 100%; /* Full width on smaller screens */
-  }
+.post {
+  margin: 15px 0; /* Spacing within card */
 }
 
 @media (max-width: 768px) {
   .main {
-      padding: 10px; /* Further reduce padding */
-  }
-
-  .like-button {
-      font-size: 12px; /* Smaller font size for buttons */
-  }
-
-  .post {
-      padding: 10px; /* Adjust padding for posts */
-  }
-}
-
-@media (max-width: 576px) {
-  .postcard {
-      padding: 0; /* No padding on very small screens */
-  }
-
-  .post {
-      padding: 5px; /* Less padding for posts */
-  }
-
-  .like-button {
-      font-size: 10px; /* Smaller button font size */
-      padding: 3px 5px; /* Adjust button padding */
+    width: 100%; /* Full width on smaller screens */
   }
 }

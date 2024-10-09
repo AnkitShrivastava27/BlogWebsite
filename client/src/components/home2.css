@@ -1,95 +1,34 @@
-/* home2.css */
-
-/* General styles */
-body {
-  background-color: #f2f2f2; /* Light background for better contrast */
-  font-family: 'Arial', sans-serif; /* Clean and modern font */
-}
-
-/* Subnavigation styles */
 .subnavar {
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 20px 0; /* Margin above and below */
-  display: flex; /* Flexbox for horizontal alignment */
-  justify-content: space-around; /* Space between items */
+  list-style-type: none;
+  padding: 0; /* Remove default padding */
+  display: flex; /* Flexbox for horizontal layout */
+  justify-content: space-around; /* Space items evenly */
+  background-color: #007bff; /* Navbar background color */
+  color: white;
+  margin-bottom: 20px; /* Space below navbar */
 }
 
-.subnavar li {
-  margin: 0 10px; /* Margin around list items */
-}
-
-.subnavar a {
+.subnavar li a {
+  color: white; /* White text color */
   text-decoration: none; /* Remove underline */
-  color: #6200EE; /* Primary color for links */
-  font-weight: bold; /* Bold text for emphasis */
-  transition: color 0.3s; /* Smooth transition for hover effect */
 }
 
-.subnavar a:hover {
-  color: #3700B3; /* Darker shade on hover */
+.subnavar li a:hover {
+  text-decoration: underline; /* Underline on hover */
 }
 
-/* Side column styles */
 .sidecol {
-  margin-left: 20px; /* Margin to the left of the side column */
+  padding: 20px; /* Padding inside side column */
 }
 
-/* Card styles */
-.card {
-  margin-top: 20px; /* Margin above the card */
-}
-
-/* Footer styles */
 .footer {
-  list-style-type: none; /* Remove bullets */
+  display: flex; /* Flexbox for footer layout */
+  justify-content: space-around; /* Space items evenly */
   padding: 20px; /* Padding inside footer */
-  margin-top: 40px; /* Space above footer */
-  background-color: #6200EE; /* Primary color background */
-  color: white; /* White text for contrast */
+  background-color: #343a40; /* Dark footer background */
+  color: white; /* White text for footer */
 }
 
 .footer h3 {
   margin-bottom: 10px; /* Space below heading */
-}
-
-.footer p {
-  margin: 5px 0; /* Space between paragraphs */
-}
-
-/* Social links styles */
-.social-links {
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-}
-
-.social-links li {
-  margin: 5px 0; /* Space between social links */
-}
-
-.social-links a {
-  color: #6200EE; /* Primary color for links */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s; /* Smooth transition for hover effect */
-}
-
-.social-links a:hover {
-  color: #3700B3; /* Darker shade on hover */
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .subnavar {
-      flex-direction: column; /* Stack subnavigation links vertically on small screens */
-      align-items: center; /* Center align items */
-  }
-
-  .sidecol {
-      margin-left: 0; /* Remove margin on small screens */
-      margin-top: 20px; /* Margin above side column */
-  }
-
-  .footer {
-      padding: 10px; /* Adjust padding for smaller screens */
-  }
 }
