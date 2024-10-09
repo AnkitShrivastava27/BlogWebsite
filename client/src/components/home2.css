@@ -1,115 +1,95 @@
+/* home2.css */
+
+/* General styles */
 body {
-  font-family: Arial, sans-serif;
+  background-color: #f2f2f2; /* Light background for better contrast */
+  font-family: 'Arial', sans-serif; /* Clean and modern font */
 }
 
-.container {
-  margin-top: 20px;
-}
-
+/* Subnavigation styles */
 .subnavar {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  margin-bottom: 20px;
-  background-color: #f8f9fa;
-  padding: 10px;
-  border-radius: 8px;
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 20px 0; /* Margin above and below */
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-around; /* Space between items */
 }
 
 .subnavar li {
-  margin: 0 15px;
+  margin: 0 10px; /* Margin around list items */
 }
 
-.subnavar li a {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
+.subnavar a {
+  text-decoration: none; /* Remove underline */
+  color: #6200EE; /* Primary color for links */
+  font-weight: bold; /* Bold text for emphasis */
+  transition: color 0.3s; /* Smooth transition for hover effect */
 }
 
-.subnavar li a:hover {
-  color: #0056b3;
+.subnavar a:hover {
+  color: #3700B3; /* Darker shade on hover */
 }
 
+/* Side column styles */
 .sidecol {
-  margin-top: 20px;
+  margin-left: 20px; /* Margin to the left of the side column */
 }
 
+/* Card styles */
 .card {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Margin above the card */
 }
 
-.card-text {
-  font-size: 14px;
-}
-
+/* Footer styles */
 .footer {
-  list-style: none;
-  padding: 0;
-  color: rgb(255, 255, 255);
-  margin: 20px 0 0 0;
-  background-color: #000000;
-  padding: 20px;
-  border-top: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.footer li {
-  margin-bottom: 20px;
+  list-style-type: none; /* Remove bullets */
+  padding: 20px; /* Padding inside footer */
+  margin-top: 40px; /* Space above footer */
+  background-color: #6200EE; /* Primary color background */
+  color: white; /* White text for contrast */
 }
 
 .footer h3 {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Space below heading */
 }
 
 .footer p {
-  margin: 0;
+  margin: 5px 0; /* Space between paragraphs */
 }
 
-hr {
-  margin: 15px 0;
+/* Social links styles */
+.social-links {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
 }
 
-.link {
-  display: inline-block;
-  margin: 10px 0;
+.social-links li {
+  margin: 5px 0; /* Space between social links */
 }
 
-.link a {
-  text-decoration: none;
-  color: #007bff;
+.social-links a {
+  color: #6200EE; /* Primary color for links */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth transition for hover effect */
 }
 
-.link a:hover {
-  color: #0056b3;
+.social-links a:hover {
+  color: #3700B3; /* Darker shade on hover */
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
   .subnavar {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column; /* Stack subnavigation links vertically on small screens */
+      align-items: center; /* Center align items */
   }
 
-  .subnavar li {
-      margin: 10px 0;
-  }
-
-  .card {
-      margin: 10px 0;
+  .sidecol {
+      margin-left: 0; /* Remove margin on small screens */
+      margin-top: 20px; /* Margin above side column */
   }
 
   .footer {
-      padding: 15px;
-      text-align: center;
-  }
-
-  .footer li {
-      margin-bottom: 10px;
-  }
-
-  .link {
-      margin: 5px 0;
+      padding: 10px; /* Adjust padding for smaller screens */
   }
 }

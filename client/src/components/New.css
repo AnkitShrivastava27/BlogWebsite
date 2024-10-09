@@ -1,58 +1,84 @@
+/* New.css */
+
+/* Container for the form */
 .form-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex; /* Flexbox for centering */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center align content */
+  padding: 20px; /* Padding around the form */
+  background-color: #f9f9f9; /* Light background for better contrast */
+  border-radius: 8px; /* Rounded corners for the form container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 600px; /* Maximum width of the form */
+  margin: auto; /* Center the form horizontally */
 }
 
-.select-genre, .input-title, .input-post, .submit-button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
-}
-
+/* Style for the select input */
 .select-genre {
-  appearance: none;
-  background-color: #ffffff;
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the select */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 15px; /* Space below the select */
+  font-size: 16px; /* Font size */
 }
 
+/* Style for the title input */
 .input-title {
-  font-size: 16px;
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the input */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 15px; /* Space below the input */
+  font-size: 16px; /* Font size */
 }
 
+/* Style for the textarea */
 .input-post {
-  font-size: 14px;
-  height: 150px;
-  resize: none;
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the textarea */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 15px; /* Space below the textarea */
+  font-size: 16px; /* Font size */
+  resize: vertical; /* Allow vertical resizing only */
 }
 
+/* Style for the submit button */
 .submit-button {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the button */
+  background-color: #6200EE; /* Primary color */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
+/* Hover effect for the submit button */
+.submit-button:hover {
+  background-color: #3700B3; /* Darker shade on hover */
+}
+
+/* Disabled button style */
 .submit-button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
+  background-color: #ccc; /* Grey background for disabled state */
+  cursor: not-allowed; /* Not allowed cursor for disabled state */
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
   .form-container {
-    padding: 15px; 
-    margin: 20px; 
+      padding: 15px; /* Adjust padding for smaller screens */
   }
 
-  .input-title, .input-post, .select-genre, .submit-button {
-    font-size: 14px; 
-  }
-
-  .input-post {
-    height: 120px; 
+  .select-genre,
+  .input-title,
+  .input-post,
+  .submit-button {
+      font-size: 14px; /* Smaller font size for inputs on small screens */
   }
 }

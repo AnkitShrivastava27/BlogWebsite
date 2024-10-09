@@ -1,68 +1,44 @@
+/* Home.css */
+
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif; /* Default font for better readability */
-}
-
-.footer {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-  color: white;
-  background-color: black;
-  padding: 10px 0; /* Adjusted for consistent vertical padding */
-}
-
-.dnconsol {
-  display: flex;
-  justify-content: space-around;
-}
-
-.subnavar {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(185, 223, 243, 0.574);
-  font-size: medium;
-}
-
-.subnavar li {
-  padding: 20px 50px; /* Combined padding for consistency */
-}
-
-.postcard {
-  list-style: none;
-  padding: 0;
-  background-color: transparent;
-}
-
-ul {
-  background-color: transparent;
-}
-
-/* Home.css */
-.post {
-  background-color: rgba(237, 234, 234, 0.533);
-  padding: 15px; /* Added padding for better spacing */
-}
-
-.li {
-  margin-bottom: 20px;
+  font-family: Arial, sans-serif; /* Default font */
 }
 
 .main {
-  background-color: transparent;
+  padding: 20px; /* Added padding for the main container */
+}
+
+/* Card Styles */
+.postcard {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 20px; /* Space between cards */
+}
+
+.card {
+  border: 1px solid #ddd; /* Light border for cards */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slightly enlarge card on hover */
+}
+
+/* Post Styles */
+.post {
+  background-color: rgba(237, 234, 234, 0.9); /* Lighter background for posts */
+  padding: 15px; /* Padding inside card */
+  border-radius: 8px; /* Rounded corners for post content */
 }
 
 /* Button Styles */
-.btn {
-  border: none;
-  background-color: transparent;
-}
-
 .like-button {
-  border: none; /* Removed border for better aesthetics */
+  border: none;
   background-color: transparent;
   color: black;
   padding: 5px 10px;
@@ -70,7 +46,6 @@ ul {
   font-size: 16px;
   margin-left: 10px;
   transition: all 0.3s ease;
-  filter: drop-shadow(1px 1px 20px red);
 }
 
 .like-button:disabled {
@@ -78,43 +53,56 @@ ul {
   opacity: 0.5;
 }
 
-.like-button:hover:not(:disabled) {
-  color: transparent; /* Hides text on hover */
-}
-
 /* Responsive Styles */
-@media (max-width: 768px) {
-  .footer {
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 0;
+@media (max-width: 1200px) {
+  .postcard {
+      flex-direction: column; /* Stack cards vertically on medium screens */
   }
 
-  .subnavar li {
-      margin-left: 0; 
-      padding: 10px 0; 
+  .card {
+      width: 100%; /* Full width on medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .main {
+      padding: 15px; /* Reduce padding for smaller screens */
   }
 
   .like-button {
-      font-size: 14px; 
+      font-size: 14px; /* Smaller font size for buttons */
+  }
+
+  .card {
+      width: 100%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+      padding: 10px; /* Further reduce padding */
+  }
+
+  .like-button {
+      font-size: 12px; /* Smaller font size for buttons */
   }
 
   .post {
-      padding: 10px; 
+      padding: 10px; /* Adjust padding for posts */
+  }
+}
+
+@media (max-width: 576px) {
+  .postcard {
+      padding: 0; /* No padding on very small screens */
   }
 
-  /* Additional responsive styles for better layout on small screens */
-  .dnconsol {
-      flex-direction: column; /* Stack elements vertically on small screens */
-      align-items: center; /* Center align items */
+  .post {
+      padding: 5px; /* Less padding for posts */
   }
 
-  .subnavar {
-      flex-wrap: wrap; /* Allow wrapping of navigation items */
-  }
-
-  .subnavar li {
-      margin-left: 10px; /* Reduced margin for smaller screens */
-      margin-bottom: 10px; /* Added spacing between items */
+  .like-button {
+      font-size: 10px; /* Smaller button font size */
+      padding: 3px 5px; /* Adjust button padding */
   }
 }

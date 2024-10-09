@@ -1,53 +1,95 @@
+/* Profile.css */
+
+/* Container for the profile page */
+.super {
+  padding: 20px; /* Add padding to the container */
+  background-color: #f9f9f9; /* Light background for the profile page */
+  min-height: 100vh; /* Ensure the container covers full height */
+}
+
+/* Profile card styles */
 .profile {
-  padding: 20px;
-}
-
-.profilepic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 0 auto;
-  display: block;
-}
-
-.title {
-  font-size: 24px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align the items */
+  margin-bottom: 30px; /* Space below the profile card */
 }
 
 .main {
-  margin-bottom: 20px;
+  background-color: white; /* White background for the main card */
+  border-radius: 10px; /* Rounded corners for the card */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  padding: 20px; /* Padding inside the card */
 }
 
-.card-subtitle {
-  font-size: 18px;
+/* Profile image styles */
+.profilepic {
+  border-radius: 50%; /* Circular profile image */
+  width: 120px; /* Fixed width for the profile picture */
+  height: 120px; /* Fixed height for the profile picture */
+  object-fit: cover; /* Cover the space without distortion */
 }
 
-.card-text {
-  font-size: 16px;
+/* Title and subtitle styles */
+.title {
+  font-size: 24px; /* Font size for the title */
+  font-weight: bold; /* Bold font for emphasis */
 }
 
-.text-muted {
-  font-size: 14px;
+.text-center {
+  text-align: center; /* Center align text */
 }
 
+/* Blogs section styles */
+h1 {
+  color: #333; /* Dark color for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* List styles */
+.list-unstyled {
+  padding-left: 0; /* Remove default padding */
+}
+
+/* Card styles for each blog post */
+.mb-4 {
+  margin-bottom: 20px; /* Space below each blog post card */
+}
+
+.card-body {
+  padding: 15px; /* Padding inside each card */
+}
+
+/* Action dropdown styles */
+.dropdown-toggle {
+  background-color: #6c757d; /* Default background for dropdown */
+  color: white; /* White text for dropdown toggle */
+}
+
+.dropdown-menu {
+  min-width: 150px; /* Minimum width for the dropdown menu */
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
-  .profile {
-      padding: 15px;
+  .super {
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .main {
+      width: 100%; /* Full width for the main card on small screens */
+  }
+
+  .profilepic {
+      width: 80px; /* Smaller profile picture on small screens */
+      height: 80px; /* Smaller profile picture on small screens */
   }
 
   .title {
-      font-size: 20px;
+      font-size: 20px; /* Smaller font size for title */
   }
 
-  .card-subtitle {
-      font-size: 16px;
-  }
-
-  .card-text {
-      font-size: 14px;
-  }
-
-  .text-muted {
-      font-size: 12px;
+  h1 {
+      font-size: 24px; /* Smaller font size for heading */
   }
 }

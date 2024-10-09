@@ -1,42 +1,76 @@
-.navar {
-  padding-top: 20px;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(185, 243, 224, 0.574);
+/* App.css */
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Consistent font across the app */
+  background-color: #f4f4f4; /* Light background color for better contrast */
 }
 
-.navar li {
-  margin-left: 50px;
-  padding-bottom: 21px;
-}
-
+/* Body Style */
 .body {
-  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column; /* Stack navbar and routes vertically */
+  min-height: 100vh; /* Ensure full height for the body */
 }
 
-.logo {
-  height: 30px;
+/* Navbar Styles */
+.navbar {
+  background-color: #333; /* Dark background for the navbar */
+  padding: 10px 20px; /* Padding for the navbar */
+  color: white; /* White text color */
 }
 
-link {
-  text-decoration: none;
-  color: brown;
+.navbar a {
+  color: white; /* White link color */
+  text-decoration: none; /* Remove underline from links */
+  padding: 10px 15px; /* Padding for links */
+  border-radius: 5px; /* Rounded corners for links */
+  transition: background-color 0.3s ease; /* Smooth background transition */
 }
 
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighten link on hover */
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .navar {
-    flex-direction: column;
-    padding-top: 15px;
+  .navbar {
+      flex-direction: column; /* Stack links vertically on small screens */
+      align-items: center; /* Center align items */
   }
 
-  .navar li {
-    margin-left: 0;
-    margin-bottom: 10px;
+  .navbar a {
+      padding: 8px 12px; /* Adjust padding for smaller screens */
+      margin: 5px 0; /* Space between links */
+      width: 100%; /* Full width links */
+      text-align: center; /* Center text for smaller links */
   }
-  
-  .logo {
-    height: 25px;
-  }
+}
+
+/* Route Styles */
+.routes {
+  flex-grow: 1; /* Allow routes to grow and take remaining space */
+  padding: 20px; /* Padding around routes */
+}
+
+/* Card and Content Styles (if needed) */
+.card {
+  background-color: white; /* White background for content cards */
+  border-radius: 8px; /* Rounded corners for cards */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 15px; /* Padding for content inside cards */
+  margin-bottom: 20px; /* Space between cards */
+}
+
+h1, h2, h3 {
+  color: #333; /* Darker text for headers */
+}
+
+/* Footer Styles (if applicable) */
+.footer {
+  background-color: #333; /* Dark background for footer */
+  color: white; /* White text color */
+  text-align: center; /* Center text */
+  padding: 10px; /* Padding for footer */
 }
