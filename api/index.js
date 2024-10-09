@@ -7,7 +7,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: "http://localhost:3000", // Remove trailing slash
+  origin: "https://wrightist.vercel.app", // Remove trailing slash
 }));
 
 app.use(express.json());
