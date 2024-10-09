@@ -1,76 +1,92 @@
-/* App.css */
-
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif; /* Consistent font across the app */
-  background-color: #f4f4f4; /* Light background color for better contrast */
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-/* Body Style */
+/* App Body */
 .body {
   display: flex;
-  flex-direction: column; /* Stack navbar and routes vertically */
-  min-height: 100vh; /* Ensure full height for the body */
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Navbar Styles */
 .navbar {
-  background-color: #333; /* Dark background for the navbar */
-  padding: 10px 20px; /* Padding for the navbar */
-  color: white; /* White text color */
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar a {
-  color: white; /* White link color */
-  text-decoration: none; /* Remove underline from links */
-  padding: 10px 15px; /* Padding for links */
-  border-radius: 5px; /* Rounded corners for links */
-  transition: background-color 0.3s ease; /* Smooth background transition */
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Lighten link on hover */
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navbar {
-      flex-direction: column; /* Stack links vertically on small screens */
-      align-items: center; /* Center align items */
-  }
-
-  .navbar a {
-      padding: 8px 12px; /* Adjust padding for smaller screens */
-      margin: 5px 0; /* Space between links */
-      width: 100%; /* Full width links */
-      text-align: center; /* Center text for smaller links */
-  }
-}
-
-/* Route Styles */
+/* Horizontal Layout for Larger Screens */
 .routes {
-  flex-grow: 1; /* Allow routes to grow and take remaining space */
-  padding: 20px; /* Padding around routes */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-/* Card and Content Styles (if needed) */
+/* Ensure each component takes equal space */
+.routes > * {
+  flex: 1;
+  margin: 0 10px;
+}
+
+/* Card Styles */
 .card {
-  background-color: white; /* White background for content cards */
-  border-radius: 8px; /* Rounded corners for cards */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 15px; /* Padding for content inside cards */
-  margin-bottom: 20px; /* Space between cards */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
 h1, h2, h3 {
-  color: #333; /* Darker text for headers */
+  color: #333;
 }
 
-/* Footer Styles (if applicable) */
+/* Footer Styles */
 .footer {
-  background-color: #333; /* Dark background for footer */
-  color: white; /* White text color */
-  text-align: center; /* Center text */
-  padding: 10px; /* Padding for footer */
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    margin: 5px 0;
+  }
+
+  .routes {
+    flex-direction: column;
+  }
+
+  .routes > * {
+    margin: 10px 0;
+  }
 }
