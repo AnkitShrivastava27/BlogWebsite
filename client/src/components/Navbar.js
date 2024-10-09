@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../images/wRIGHTISTs_transparent.png';
 //import Logout from "./Logout";
 //import Cookies from 'js-cookie';
+import "./navbar.css";
 
 const Navbar = () => {
   //const usernameFromCookie = Cookies.get('username');
