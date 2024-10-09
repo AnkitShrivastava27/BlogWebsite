@@ -8,6 +8,7 @@ const app = express();
 // CORS configuration
 app.use(cors({
   origin: "https://wrightist.vercel.app", // Remove trailing slash
+  methods: ['GET', 'POST'],
 }));
 
 app.use(express.json());
