@@ -6,14 +6,10 @@ require('dotenv').config();
 const app = express();
 
 // CORS configuration
-const corsOptions = {
-  origin: "https://wrightist-ankitshrivastava27s-projects.vercel.app/",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-};
 
+app.use(cors());
 app.use(express.json());
-app.use(cors(corsOptions));
+
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB URI
