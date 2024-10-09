@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Pp from '../images/profile.png';
-import { Card, Container, Dropdown, Row, Col } from "react-bootstrap";
+import { Card, Container, Dropdown, Button } from "react-bootstrap";
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Logout from "./Logout";
 
 const Profile = () => {
-  const API_BASE_URL = process.env.BACKENDLINK;
   const [ud, setUd] = useState({});
   const [mypost, setMyPost] = useState([]);
   const navigate = useNavigate();
@@ -84,53 +83,62 @@ const Profile = () => {
     }
   }, []);
 
+  // Navigate to new post page
+  const handleNewPost = () => {
+    navigate('/new'); // Assuming your new post route is /new
+  };
+
   return (
     <Container className="super">
       <div className="profile">
-        <Card style={{ width: '100%', maxWidth: '800px' }} className="mx-auto my-4">
+        {/* Profile Card */}
+        <Card className="main mb-4">
           <Card.Body className="text-center">
             <img src={Pp} alt="profile" className="profilepic img-fluid rounded-circle" />
-            <Card.Title className="mt-3">{usernameFromCookie}</Card.Title>
+            <Card.Title className="title mt-3">{usernameFromCookie}</Card.Title>
             <Card.Subtitle className="text-muted">{ud.fullname}</Card.Subtitle>
           </Card.Body>
-          <Logout />
+          <div className="text-end">
+            <Logout />
+            <Button variant="primary" onClick={handleNewPost} className="ms-2">
+              Create New Post
+            </Button>
+          </div>
         </Card>
 
+        {/* User Blogs Section */}
         <h1 className="text-center mt-4 mb-3">Your Blogs</h1>
-        <Row>
+        <ul className="list-unstyled">
           {mypost.map((curr) => {
             const { pid, postTitle, author, postContent } = curr;
             const likeCount = likeCounts[pid] || 0;
 
             return (
-              <Col key={pid} xs={12} md={6} lg={4} className="mb-4">
-                <Card>
-                  <Card.Body>
-                    <div className="d-flex justify-content-between">
-                      <div>
-                        <Card.Title className="mb-3">{postTitle}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
-                      </div>
-                      <Dropdown>
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                          Actions
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item onClick={() => handleDeletePost(pid)}>Delete</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
+              <Card key={pid} className="mb-4">
+                <Card.Body>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div>
+                      <Card.Title className="mb-2">{postTitle}</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
                     </div>
-                    <hr />
-                    <Card.Text>{postContent}</Card.Text>
-                    <hr />
-                    <p className="text-muted">Likes: {likeCount}</p>
-                  </Card.Body>
-                </Card>
-              </Col>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
+                        Actions
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleDeletePost(pid)}>Delete</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
+                  <hr />
+                  <Card.Text>{postContent}</Card.Text>
+                  <hr />
+                  <p className="text-muted">Likes: {likeCount}</p>
+                </Card.Body>
+              </Card>
             );
           })}
-        </Row>
+        </ul>
       </div>
     </Container>
   );

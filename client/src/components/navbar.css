@@ -1,20 +1,51 @@
+/* Navbar Styles */
 .navar {
-  list-style-type: none;
+  padding: 20px 0;
+  list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0;
+  background-color: rgba(185, 243, 224, 0.574);
+  flex-wrap: nowrap; /* Prevent wrapping, items stay in a single row */
+  overflow: hidden; /* Hide overflow if items are too wide */
+  max-width: 100%; /* Ensure navbar doesn't exceed the screen width */
 }
 
 .navar li {
-  margin: 0 15px;
+  margin: 0 15px; /* Adjusted margin for spacing */
 }
 
+/* Logo Size Adjustment */
 .logo {
-  max-height: 50px; /* Adjust as necessary */
+  height: 50px; /* Adjusted logo size */
 }
 
-/* Optional: Add hover effects */
-.navar a:hover {
-  color: darkred;
+/* Link Styles */
+.nav-link {
+  text-decoration: none;
+  color: brown;
+  font-weight: bold;
+  transition: color 0.3s;
 }
+
+.nav-link:hover {
+  color: #ff5722; /* Hover color */
+}
+
+@media (max-width: 768px) {
+  .navar {
+      padding: 10px; 
+      justify-content: center; 
+  }
+
+  .navar li {
+      margin: 0 10px; 
+      flex: none; 
+      
+  }
+
+  .logo {
+      margin: 0 10px;
+      height: 40px; 
+  }
+} 

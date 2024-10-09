@@ -7,35 +7,32 @@ import DateTimeDisplay from "./DateTimeDisplay";
 const Home = () => {
   return (
     <Container>
-      {/* Navigation Bar */}
-      <Row>
-        <Col>
-          <ul className='subnavar d-flex justify-content-around p-3'>
-            <li><Link to='/'>All</Link></li>
-            <li><Link to='/scifi'>Scifi</Link></li>
-            <li><Link to='/science'>Science & Tech</Link></li>
-            <li><Link to='/political'>Political</Link></li>
-            <li><Link to='/sport'>Sport</Link></li>
-          </ul>
-        </Col>
-      </Row>
+      {/* Sub Navbar for Categories and New Post */}
+      <ul className='subnavar nav nav-pills justify-content-center my-3'>
+        <li className='nav-item'><Link to='/' className='nav-link'>All</Link></li>
+        <li className='nav-item'><Link to='/scifi' className='nav-link'>Scifi</Link></li>
+        <li className='nav-item'><Link to='/science' className='nav-link'>Science & Tech</Link></li>
+        <li className='nav-item'><Link to='/political' className='nav-link'>Political</Link></li>
+        <li className='nav-item'><Link to='/sport' className='nav-link'>Sport</Link></li>
+        <li className='nav-item'><Link to='/new' className='nav-link newpost-link'>New Blog</Link></li>
+      </ul>
 
       <Row>
-        <Col md={8} className="mb-4">
+        {/* Main content area */}
+        <Col lg={8} md={7}>
           <Outlet />
         </Col>
-        <Col md={4} className="sidecol">
+
+        {/* Sidebar */}
+        <Col lg={4} md={5} className="sidebar d-none d-md-block">
           <Card className="mb-4">
             <Card.Body>
-              <Card.Title>New Blog</Card.Title>
               <Card.Text>
-                <Link to='/new'>Create a New Blog Post</Link>
-                <hr />
                 <DateTimeDisplay />
                 <hr />
                 <div>
                   <h5>Quick Links</h5>
-                  <ul>
+                  <ul className="list-unstyled">
                     <li><Link to='/profile'>Your Profile</Link></li>
                     <li><Link to='/about'>About Us</Link></li>
                     <li><Link to='/contact'>Contact Us</Link></li>
@@ -44,10 +41,10 @@ const Home = () => {
                 <hr />
                 <div>
                   <h5>Follow Us</h5>
-                  <ul className="social-links list-unstyled">
-                    <li><a href="https://github.com/AnkitShrivastava27" target="_blank" rel="noopener noreferrer">Github</a></li>
-                    <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                    <li><a href="https://www.instagram.com/3dcosm?igsh=MTZrNjZ3OTNmYTBhaw==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                  <ul className="list-inline">
+                    <li className="list-inline-item"><a href="https://github.com/AnkitShrivastava27" target="_blank" rel="noopener noreferrer">Github</a></li>
+                    <li className="list-inline-item"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li className="list-inline-item"><a href="https://www.instagram.com/3dcosm?igsh=MTZrNjZ3OTNmYTBhaw==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                   </ul>
                 </div>
                 <hr />
@@ -58,17 +55,17 @@ const Home = () => {
         </Col>
       </Row>
 
-      {/* Footer */}
-      <Row>
+      {/* Footer Section */}
+      <Row className="mt-4">
         <Col>
-          <ul className="footer list-unstyled">
-            <li>
-              <h3>Contact Us</h3>
+          <ul className="footer list-unstyled text-center">
+            <li className="mb-3">
+              <h5>Contact Us</h5>
               <p>+91 000000000</p>
               <p>someone@example.com</p>
             </li>
             <li>
-              <h3>About Us</h3>
+              <h5>About Us</h5>
               <p>Hi there! Welcome to wRIGHTISTs, a platform where you can express your thoughts, share your stories, and connect with others.</p>
             </li>
           </ul>
