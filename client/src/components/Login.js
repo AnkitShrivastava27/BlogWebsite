@@ -24,7 +24,7 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${API_BASE_URL}api/login`, {
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

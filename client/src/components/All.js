@@ -39,7 +39,7 @@ const All = () => {
 
   const fetchLikes = async (postid) => {
     try {
-      const response = await fetch(`${API_BASE_URL}api/GetLikes/${postid}`);
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
       const data = await response.json();
       setLikesData(prevLikesData => ({
         ...prevLikesData,
@@ -53,7 +53,7 @@ const All = () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_BASE_URL}api/allpost`, {
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/allpost`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

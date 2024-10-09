@@ -21,7 +21,7 @@ const Political= () => {
  const fetchPosts = async () => {
     try {
       
-      const response = await  fetch(`${API_BASE_URL}api/getpost/${genere}`)
+      const response = await  fetch(`https://wrightist-backend.vercel.app/api/getpost/${genere}`)
       const data = await response.json();
 
       // Sort posts by createdAt in descending order
@@ -39,7 +39,7 @@ const Political= () => {
 
   const fetchLikes = async (postid) => {
     try {
-      const response = await fetch(`${API_BASE_URL}api/GetLikes/${postid}`);
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
       const data = await response.json();
       setLikesData(prevLikesData => ({
         ...prevLikesData,
@@ -53,7 +53,7 @@ const Political= () => {
   const handleLikes = async (e, pid) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_BASE_URL}api/like`, {
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/like`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
