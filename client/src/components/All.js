@@ -13,7 +13,7 @@ const All = () => {
   const [posts, setPosts] = useState([]);
   const [likesData, setLikesData] = useState({});
   const Author = usernameFromCookie;
-  const pURL = 'https://wrightist-backend-8a7q1a7x2-ankitshrivastava27s-projects.vercel.app/'
+  const pURL = 'https://wrightist-backend.vercel.app'
 
   useEffect(() => {
     fetchPosts();
@@ -21,7 +21,7 @@ const All = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch(`${pURL}api/allpost`);
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/allpost`);
       const data = await response.json();
 
       
