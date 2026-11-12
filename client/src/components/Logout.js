@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
@@ -16,9 +15,14 @@ function Logout() {
 
   return (
     <div className="text-center">
-      <a onClick={handleLogout} href='#' style={{textDecoration:'none', color:'brown' , marginTop:'10px'}} className="text-button">
+      <button
+        type="button"
+        onClick={handleLogout}
+        style={{ background: 'none', border: 'none', padding: 0, textDecoration: 'none', color: 'brown', marginTop: '10px', cursor: 'pointer' }}
+        className="text-button"
+      >
         Logout
-      </a>
+      </button>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const AboutUs = () => {
             <h2>Our Team</h2>
             <p>We are a group of college students who are enthusiastic about writing, technology, and community building. Each of us brings a unique perspective and skill set to the table, contributing to the website's development and content.</p>
             <h2>Contact Us</h2>
-            <p>If you have any questions, suggestions, or would like to contribute, feel free to reach out to us at <a href="#">clickhere</a>. We love hearing from our readers and fellow bloggers!</p>
+            <p>If you have any questions, suggestions, or would like to contribute, feel free to reach out to us through our contact channels. We love hearing from our readers and fellow bloggers!</p>
         </div>
     );
 };

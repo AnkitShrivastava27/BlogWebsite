@@ -5,7 +5,6 @@ import Cookies from 'js-cookie';
 import './Login.css'; // Import the CSS file for custom styling
 
 function Login() {
-  const API_BASE_URL = process.env.BACKENDLINK;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   

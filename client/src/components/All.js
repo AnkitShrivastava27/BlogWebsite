@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Home.css"; // Ensure this is included
 import Cookies from 'js-cookie';
@@ -6,17 +6,10 @@ import moment from 'moment';
 
 const All = () => {
   const usernameFromCookie = Cookies.get('username');
-  const apiKey = process.env.REACT_APP_ACCESS_KEY;
   const [posts, setPosts] = useState([]);
   const [likesData, setLikesData] = useState({});
   const Author = usernameFromCookie;
-  const API_BASE_URL = 'https://wrightist-backend.vercel.app/';
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
       const response = await fetch(`https://wrightist-backend.vercel.app/api/allpost`);
       const data = await response.json();
@@ -29,7 +22,11 @@ const All = () => {
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
 
   const fetchLikes = async (postid) => {
     try {
