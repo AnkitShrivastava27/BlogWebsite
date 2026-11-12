@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Home.css";
 import Cookies from 'js-cookie';
@@ -15,7 +15,7 @@ const Sport = () => {
     fetchPosts();
   }, []);
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
       const response = await fetch(`https://wrightist.vercel.app/api/getpost/${genere}`);
       const data = await response.json();
