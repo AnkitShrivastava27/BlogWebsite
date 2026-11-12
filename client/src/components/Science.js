@@ -6,14 +6,23 @@ import moment from 'moment';
 
 const Science = () => {
   const usernameFromCookie = Cookies.get('username');
-  const API_BASE_URL = process.env.BACKENDLINK;
   const [posts, setPosts] = useState([]);
   const [likesData, setLikesData] = useState({});
   const Author = usernameFromCookie;
   const genere = "Science&Technology";
 
-  useEffect(() => {
-    fetchPosts();
+
+  const fetchLikes = useCallback(async (postid) => {
+    try {
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
+      const data = await response.json();
+      setLikesData(prevLikesData => ({
+        ...prevLikesData,
+        [postid]: data
+      }));
+    } catch (error) {
+      console.error("Error fetching likes:", error);
+    }
   }, []);
 
   const fetchPosts = useCallback(async () => {
@@ -32,20 +41,13 @@ const Science = () => {
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
-  };
+  }, [genere, fetchLikes]);
 
-  const fetchLikes = async (postid) => {
-    try {
-      const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
-      const data = await response.json();
-      setLikesData(prevLikesData => ({
-        ...prevLikesData,
-        [postid]: data
-      }));
-    } catch (error) {
-      console.error("Error fetching likes:", error);
-    }
-  };
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
+
+
 
   const handleLikes = async (e, pid) => {
     e.preventDefault();

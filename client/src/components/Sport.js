@@ -11,8 +11,18 @@ const Sport = () => {
   const Author = usernameFromCookie;
   const genere = "Sport";
 
-  useEffect(() => {
-    fetchPosts();
+
+  const fetchLikes = useCallback(async (postid) => {
+    try {
+      const response = await fetch(`https://wrightist.vercel.app/api/GetLikes/${postid}`);
+      const data = await response.json();
+      setLikesData(prevLikesData => ({
+        ...prevLikesData,
+        [postid]: data
+      }));
+    } catch (error) {
+      console.error("Error fetching likes:", error);
+    }
   }, []);
 
   const fetchPosts = useCallback(async () => {
@@ -31,20 +41,13 @@ const Sport = () => {
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
-  };
+  }, [genere, fetchLikes]);
 
-  const fetchLikes = async (postid) => {
-    try {
-      const response = await fetch(`https://wrightist.vercel.app/api/GetLikes/${postid}`);
-      const data = await response.json();
-      setLikesData(prevLikesData => ({
-        ...prevLikesData,
-        [postid]: data
-      }));
-    } catch (error) {
-      console.error("Error fetching likes:", error);
-    }
-  };
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
+
+
 
   const handleLikes = async (e, pid) => {
     e.preventDefault();
