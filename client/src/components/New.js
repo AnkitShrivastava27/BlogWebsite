@@ -8,7 +8,6 @@ import { Container, Form, Button } from "react-bootstrap";
 const New = () => {
   const username = Cookies.get('username');
   const fullname = Cookies.get('fullname');
-  const API_BASE_URL = process.env.BACKENDLINK;
   const navigate = useNavigate();
   const [genre, setGenre] = useState('');
   const [postTitle, setPostTitle] = useState('');

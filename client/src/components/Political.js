@@ -1,41 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Home.css";
 import Cookies from 'js-cookie';
 import moment from 'moment';
 
 const Political = () => {
-  const API_BASE_URL = process.env.BACKENDLINK;
   const usernameFromCookie = Cookies.get('username');
-  const fullname = Cookies.get('fullname');
   const [posts, setPosts] = useState([]);
   const [likesData, setLikesData] = useState({});
   const Author = usernameFromCookie;
   const genere = "Political";
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch(`https://wrightist-backend.vercel.app/api/getpost/${genere}`);
-      const data = await response.json();
-
-      // Sort posts by createdAt in descending order
-      const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      setPosts(sortedData);
-
-      // Fetch likes for all posts
-      sortedData.forEach(post => {
-        fetchLikes(post.pid);
-      });
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  };
-
-  const fetchLikes = async (postid) => {
+  const fetchLikes = useCallback(async (postid) => {
     try {
       const response = await fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postid}`);
       const data = await response.json();
@@ -46,7 +22,29 @@ const Political = () => {
     } catch (error) {
       console.error("Error fetching likes:", error);
     }
-  };
+  }, []);
+
+  const fetchPosts = useCallback(async () => {
+    try {
+      const response = await fetch(`https://wrightist-backend.vercel.app/api/getpost/${genere}`);
+      const data = await response.json();
+
+      // Sort posts by createdAt in descending order.
+      const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      setPosts(sortedData);
+
+      // Fetch likes for all posts.
+      sortedData.forEach((post) => {
+        fetchLikes(post.pid);
+      });
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  }, [genere, fetchLikes]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
 
   const handleLikes = async (e, pid) => {
     e.preventDefault();

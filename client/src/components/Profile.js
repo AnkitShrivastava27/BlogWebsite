@@ -44,17 +44,6 @@ const Profile = () => {
   // State and effect for like count
   const [likeCounts, setLikeCounts] = useState({});
 
-  useEffect(() => {
-    mypost.forEach((post) => {
-      fetchLikesForPost(post.pid).then((count) => {
-        setLikeCounts((prevCounts) => ({
-          ...prevCounts,
-          [post.pid]: count,
-        }));
-      });
-    });
-  }, [mypost]);
-
   const fetchLikesForPost = useCallback((postId) => {
     return fetch(`https://wrightist-backend.vercel.app/api/GetLikes/${postId}`)
       .then((resp) => resp.json())
@@ -64,6 +53,17 @@ const Profile = () => {
         return 0; // Return 0 if there's an error
       });
   }, []);
+
+  useEffect(() => {
+    mypost.forEach((post) => {
+      fetchLikesForPost(post.pid).then((count) => {
+        setLikeCounts((prevCounts) => ({
+          ...prevCounts,
+          [post.pid]: count,
+        }));
+      });
+    });
+  }, [mypost, fetchLikesForPost]);
 
   const handleDeletePost = useCallback((postId) => {
     if (window.confirm("Are you sure you want to delete this post?")) {

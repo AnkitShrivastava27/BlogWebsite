@@ -5,7 +5,6 @@ import './SignupPage.css'; // Import the CSS file for custom styling
 
 const SignupPage = () => {
   const navigate = useNavigate();
-  const API_BASE_URL = process.env.BACKENDLINK;
   const [formData, setFormData] = useState({
     username: '',
     fullname: '',
