@@ -1,0 +1,7 @@
+Fonts bundled for the hand-drawn UI (all files are the Latin subsets distributed by Fontsource):
+
+- Kalam (Regular, Bold)  - Copyright (c) 2014 Indian Type Foundry. SIL Open Font License 1.1.
+- Caveat (Bold)          - Copyright 2014 The Caveat Project Authors (github.com/googlefonts/caveat). SIL Open Font License 1.1.
+- Special Elite (Regular)- Copyright (c) 2011 Astigmatic (AOETI). Apache License 2.0.
+
+Full license texts: https://openfontlicense.org  and  https://www.apache.org/licenses/LICENSE-2.0

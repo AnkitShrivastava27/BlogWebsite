@@ -36,6 +36,32 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Hand-drawn UI: SVG turbulence filters used by src/App.css to make pen outlines wobble.
+         Purely decorative; referenced via filter:url(#ll-wobble-*). -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="ll-wobble-a" x="-2%" y="-4%" width="104%" height="108%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.009 0.014" numOctaves="1" seed="4" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="ll-wobble-b" x="-2%" y="-4%" width="104%" height="108%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.011 0.017" numOctaves="1" seed="11" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="ll-wobble-c" x="-4%" y="-14%" width="108%" height="128%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03 0.05" numOctaves="1" seed="7" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="ll-wobble-d" x="-4%" y="-14%" width="108%" height="128%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.036 0.06" numOctaves="1" seed="19" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="ll-wobble-e" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" seed="23" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
     <div id="root"></div>
     <!--
       This HTML file is a template.
